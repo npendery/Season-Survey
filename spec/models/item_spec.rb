@@ -2,9 +2,6 @@ require 'rails_helper'
 
 RSpec.describe Item, type: :model do
 
-  # it { should belong_to :category }
-  # it { should belong_to :price_range }
-
   it { should have_valid(:name).when('Item Name', 'Moon Boots') }
   it { should_not have_valid(:name).when('', nil) }
 
@@ -13,12 +10,6 @@ RSpec.describe Item, type: :model do
 
   it { should have_valid(:description).when('this is really cool stuff') }
   it { should_not have_valid(:description).when('', nil) }
-
-  # it { should have_valid(:price_range).when('$50 to $100') }
-  # it { should_not have_valid(:price_range).when('', nil) }
-  #
-  # it { should have_valid(:category).when('Accessories') }
-  # it { should_not have_valid(:category).when('', nil) }
 
   context 'uniqueness' do
     let!(:item) { FactoryGirl.create(:item) }

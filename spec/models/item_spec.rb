@@ -8,10 +8,10 @@ RSpec.describe Item, type: :model do
   it { should have_valid(:name).when('Item Name', 'Moon Boots') }
   it { should_not have_valid(:name).when('', nil) }
 
-  it { should have_valid(:image).when('http://www.gettyimages.co.uk/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg') }
+  it { should have_valid(:image).when('http://www.gettyimages.jpg') }
   it { should_not have_valid(:image).when('', nil) }
 
-  it { should have_valid(:description).when('this is really cool stuff', 'tastes like cheese') }
+  it { should have_valid(:description).when('this is really cool stuff') }
   it { should_not have_valid(:description).when('', nil) }
 
   # it { should have_valid(:price_range).when('$50 to $100') }

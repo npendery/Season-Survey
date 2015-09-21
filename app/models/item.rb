@@ -6,5 +6,4 @@ class Item < ActiveRecord::Base
   validates :category_id, presence: true
   validates :description, presence: true
   validates :price_range_id, presence: true
-
 end

@@ -1,0 +1,1 @@
+![Build Status](https://codeship.com/projects/50355cc0-42b4-0133-90d7-0a794f3732af/status?branch=master)![Code Climate](https://codeclimate.com/github/npendery/Season-Survey.png) ![Coverage Status](https://coveralls.io/repos/npendery/Season-Survey/badge.png)

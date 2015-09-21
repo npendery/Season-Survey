@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_many :items
   # Include default devise modules. Others available are:
-  # :timeoutable and :omniauthable
+  # :timeoutable and :omniauthable, :confirmable, :lockable
   devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :trackable,
-        :validatable, :confirmable, :lockable
+         :recoverable, :rememberable, :trackable,
+         :validatable
 end

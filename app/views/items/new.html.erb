@@ -1,24 +1,24 @@
 <h1>Add an Item</h1>
 
- <%= form_for @item do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-  <br>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <br>
-  <br>
-  <%= f.label :purchase_url, "Where to Purchase" %>
-  <%= f.text_field :purchase_url %>
-  <br>
-  <br>
-  <%= f.label :image, 'Image URL' %>
-  <%= f.text_field :image %>
-  <br>
-  <br>
-  <%= f.submit "Add Item" %>
- <% end %>
- <br>
- <br>
+  <%= form_for @item do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <br>
+    <br>
+    <%= f.label :purchase_url, "Where to Purchase" %>
+    <%= f.text_field :purchase_url %>
+    <br>
+    <br>
+    <%= f.label :image, 'Image URL' %>
+    <%= f.text_field :image %>
+    <br>
+    <br>
+    <%= f.submit "Add Item" %>
+  <% end %>
+<br>
+<br>
 <%= link_to "Back to home", items_path %>

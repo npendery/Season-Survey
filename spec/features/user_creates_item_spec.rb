@@ -5,9 +5,8 @@ feature 'user creates item', %{
   I want to create new item
   So that other users can rate and review it
 } do
-  scenario 'create succcessful item' do
+  scenario 'creates item succcessfully' do
     user = FactoryGirl.create(:user)
-    item = FactoryGirl.create(:item)
 
     visit new_user_session_path
 
@@ -16,21 +15,17 @@ feature 'user creates item', %{
 
     click_button 'Log in'
 
-    expect(page).to have_content('Signed in successfully')
-    expect(page).to have_content('Sign Out')
-
     click_on 'Create Item'
 
-    fill_in 'Name', with: "new name"
-    fill_in 'Description', with: item.description
-    fill_in 'Where to Purchase', with: item.purchase_url
-    fill_in 'Image URL', with: item.image
+    fill_in 'Name', with: "item.name"
+    fill_in 'Description', with: "item.description"
+    fill_in 'Where to Purchase', with: "item.purchase_url"
+    fill_in 'Image URL', with: "item.image"
 
-    # save_and_open_page
     click_on "Add Item"
 
     expect(page).to have_content("Item added.")
-    expect(page).to have_content(item.description)
+    expect(page).to have_content("item.description")
   end
 
   scenario 'create unsucccessful item, without name' do
@@ -44,9 +39,6 @@ feature 'user creates item', %{
 
     click_button 'Log in'
 
-    expect(page).to have_content('Signed in successfully')
-    expect(page).to have_content('Sign Out')
-
     click_on 'Create Item'
 
     fill_in 'Name', with: ''
@@ -58,7 +50,7 @@ feature 'user creates item', %{
     expect(page).to have_content("Name can't be blank")
   end
 
-  scenario 'create unsucccessful item, without description' do
+  scenario 'user forgets description field' do
     user = FactoryGirl.create(:user)
     item = FactoryGirl.create(:item)
 
@@ -68,9 +60,6 @@ feature 'user creates item', %{
     fill_in 'Password', with: user.password
 
     click_button 'Log in'
-
-    expect(page).to have_content('Signed in successfully')
-    expect(page).to have_content('Sign Out')
 
     click_on 'Create Item'
 

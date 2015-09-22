@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user creates item', %Q{
+feature 'user creates item', %{
   As a signed up user
   I want to create new item
   So that other users can rate and review it

@@ -14,10 +14,8 @@ feature 'user visits items index', %{
     item1 = FactoryGirl.create(:item)
     item2 = FactoryGirl.create(:item, category_id: 2)
     category = FactoryGirl.create(:category)
-
     visit root_path
     click_on category.name
-save_and_open_page
     expect(page).to have_content(item1.name)
     expect(page).to_not have_content(item2.name)
   end

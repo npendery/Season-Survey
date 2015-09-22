@@ -10,7 +10,7 @@ feature 'user registers', %{
   # * Visitor must see link to sign in
   # * Visitor must see a list of categories that are links to other pages
 
-	scenario 'user visits root path' do
+  scenario 'user visits root path' do
     item = FactoryGirl.create(:item)
     category = FactoryGirl.create(:category)
 
@@ -18,5 +18,5 @@ feature 'user registers', %{
     expect(page).to have_content("Sign In")
     expect(page).to have_content(category.name)
     expect(page).to_not have_content(item.purchase_url)
-	end
+  end
 end

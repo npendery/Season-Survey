@@ -15,4 +15,8 @@ FactoryGirl.define do
     price_range_id 3
     category_id 1
   end
+
+  factory :category do
+    sequence(:name) { |n| "category #{n}" }
+  end
 end

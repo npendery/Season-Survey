@@ -2,3 +2,9 @@
   Modify me in `app/views/homes/index.html.erb` or change the root directive in
   `config/routes.rb`
 </p>
+
+<ul>
+  <% @categories.each do |cat| %>
+    <li><%= cat.name %></li>
+  <% end %>
+</ul>

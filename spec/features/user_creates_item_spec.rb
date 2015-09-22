@@ -6,8 +6,8 @@ feature 'user creates item', %{
   So that other users can rate and review it
 } do
   scenario 'creates item succcessfully' do
+    Category.find_or_create_by!(name: "Clothing")
     user = FactoryGirl.create(:user)
-
     visit new_user_session_path
 
     fill_in 'Email', with: user.email
@@ -21,6 +21,7 @@ feature 'user creates item', %{
     fill_in "Description", with: "It's big, and hairy"
     fill_in "Where to Purchase", with: "The zoo on Sesame St."
     fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
+    select "Clothing", from: "Category"
 
     click_on "Add Item"
 
@@ -29,6 +30,7 @@ feature 'user creates item', %{
   end
 
   scenario 'create unsucccessful item, without name' do
+    Category.find_or_create_by!(name: "Clothing")
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path
@@ -44,12 +46,14 @@ feature 'user creates item', %{
     fill_in "Description", with: "It's big, and hairy"
     fill_in "Where to Purchase", with: "The zoo on Sesame St."
     fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
+    select "Clothing", from: 'Category'
 
     click_on "Add Item"
     expect(page).to have_content("Name can't be blank")
   end
 
   scenario 'user forgets description field' do
+    Category.find_or_create_by!(name: "Clothing")
     user = FactoryGirl.create(:user)
 
     visit new_user_session_path
@@ -65,6 +69,7 @@ feature 'user creates item', %{
     fill_in "Description", with: ""
     fill_in "Where to Purchase", with: "The zoo on Sesame St."
     fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
+    select "Clothing", from: 'Category'
 
     click_on "Add Item"
 

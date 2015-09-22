@@ -6,7 +6,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
+
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -33,8 +33,11 @@
   <%- end -%>
 
   <%= yield %>
-
+  <p>
+    <%= link_to 'Create Item', new_item_path %>
+  </p>
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
+
 </body>
 </html>

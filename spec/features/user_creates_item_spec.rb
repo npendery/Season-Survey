@@ -17,15 +17,15 @@ feature 'user creates item', %{
 
     click_on 'Create Item'
 
-    fill_in 'Name', with: "item.name"
-    fill_in 'Description', with: "item.description"
-    fill_in 'Where to Purchase', with: "item.purchase_url"
-    fill_in 'Image URL', with: "item.image"
+    fill_in "Name", with: "Fuzzy wuzzy snuffaluffagus"
+    fill_in "Description", with: "It's big, and hairy"
+    fill_in "Where to Purchase", with: "The zoo on Sesame St."
+    fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
 
     click_on "Add Item"
 
     expect(page).to have_content("Item added.")
-    expect(page).to have_content("item.description")
+    expect(page).to have_content("It's big, and hairy")
   end
 
   scenario 'create unsucccessful item, without name' do
@@ -40,10 +40,10 @@ feature 'user creates item', %{
 
     click_on 'Create Item'
 
-    fill_in 'Name', with: ""
-    fill_in 'Description', with: "item.description"
-    fill_in 'Where to Purchase', with: "item.purchase_url"
-    fill_in 'Image URL', with: "item.image"
+    fill_in "Name", with: ""
+    fill_in "Description", with: "It's big, and hairy"
+    fill_in "Where to Purchase", with: "The zoo on Sesame St."
+    fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
 
     click_on "Add Item"
     expect(page).to have_content("Name can't be blank")
@@ -61,10 +61,10 @@ feature 'user creates item', %{
 
     click_on 'Create Item'
 
-    fill_in 'Name', with: "item.name"
-    fill_in 'Description', with: ""
-    fill_in 'Where to Purchase', with: "item.purchase_url"
-    fill_in 'Image URL', with: "item.image"
+    fill_in "Name", with: "Fuzzy wuzzy snuffaluffagus"
+    fill_in "Description", with: ""
+    fill_in "Where to Purchase", with: "The zoo on Sesame St."
+    fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
 
     click_on "Add Item"
 

@@ -13,7 +13,7 @@ feature 'user registers', %{
   scenario 'user visits root path' do
     user = FactoryGirl.create(:user)
     category = FactoryGirl.create(:category)
-    item = FactoryGirl.create(:item, user_id: user.id, category_id: category.id)
+    item = FactoryGirl.create(:item, user: user, category: category)
 
     visit root_path
     expect(page).to have_content("Sign In")

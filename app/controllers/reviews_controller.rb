@@ -6,14 +6,12 @@ class ReviewsController < ApplicationController
 
   def create
     authenticate_user!
-    @review = Review.new(review_params)
-    @item = Item.find(params[:item_id])
-    @review.item = @item
-    @user = current_user
-    @review.user = @user
+    item = Item.find(params[:item_id])
+    @review = item.reviews.build(review_params)
+    @review.user = current_user
     if @review.save
       flash[:accepted] = "Review added."
-      redirect_to item_path(@item)
+      redirect_to item_path(item)
     else
       flash[:errors] = @review.errors.full_messages.join(". ")
       render :new

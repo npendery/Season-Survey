@@ -5,15 +5,15 @@ feature 'user creates item', %{
   I want to create new item
   So that other users can rate and review it
 } do
+
+  before do
+    FactoryGirl.create(:category)
+  end
+
   scenario 'creates item succcessfully' do
-    Category.find_or_create_by!(name: "Clothing")
     user = FactoryGirl.create(:user)
-    visit new_user_session_path
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
+    sign_in(user)
 
     click_on 'Create Item'
 
@@ -30,15 +30,9 @@ feature 'user creates item', %{
   end
 
   scenario 'create unsucccessful item, without name' do
-    Category.find_or_create_by!(name: "Clothing")
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
+    sign_in(user)
 
     click_on 'Create Item'
 
@@ -53,15 +47,9 @@ feature 'user creates item', %{
   end
 
   scenario 'user forgets description field' do
-    Category.find_or_create_by!(name: "Clothing")
     user = FactoryGirl.create(:user)
 
-    visit new_user_session_path
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
+    sign_in(user)
 
     click_on 'Create Item'
 

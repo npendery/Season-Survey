@@ -6,18 +6,11 @@ feature 'user creates review', %{
   So that other users can see what I think of the item
 } do
   scenario 'creates review succcessfully' do
-    user = FactoryGirl.create(:user)
-    category = FactoryGirl.create(:category)
-    item = FactoryGirl.create(:item, user: user, category: category)
+    item = FactoryGirl.create(:item)
 
-    visit new_user_session_path
+    sign_in(item.user)
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
-
-    click_on category.name
+    click_on item.category.name
 
     click_on item.name
 
@@ -34,18 +27,11 @@ feature 'user creates review', %{
   end
 
   scenario 'create unsucccessful review, without rating' do
-    user = FactoryGirl.create(:user)
-    category = FactoryGirl.create(:category)
-    item = FactoryGirl.create(:item, user_id: user.id, category_id: category.id)
+    item = FactoryGirl.create(:item)
 
-    visit new_user_session_path
+    sign_in(item.user)
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
-
-    click_on category.name
+    click_on item.category.name
 
     click_on item.name
 
@@ -59,18 +45,11 @@ feature 'user creates review', %{
   end
 
   scenario 'create unsucccessful review, without description' do
-    user = FactoryGirl.create(:user)
-    category = FactoryGirl.create(:category)
-    item = FactoryGirl.create(:item, user_id: user.id, category_id: category.id)
+    item = FactoryGirl.create(:item)
 
-    visit new_user_session_path
+    sign_in(item.user)
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_button 'Log in'
-
-    click_on category.name
+    click_on item.category.name
 
     click_on item.name
 

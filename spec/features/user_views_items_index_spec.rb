@@ -11,11 +11,13 @@ feature 'user visits items index', %{
   # * Visitor must not see items of another category
 
   scenario 'user visits root path' do
-    item1 = FactoryGirl.create(:item)
+    item1 = FactoryGirl.create(:item, category_id: 1)
     item2 = FactoryGirl.create(:item, category_id: 2)
-    category = FactoryGirl.create(:category)
+    category = FactoryGirl.create(:category, id: 1)
+
     visit root_path
     click_on category.name
+  # binding.pry
     expect(page).to have_content(item1.name)
     expect(page).to_not have_content(item2.name)
   end

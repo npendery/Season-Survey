@@ -18,7 +18,7 @@ RSpec.describe Item, type: :model do
     let!(:item_2) { FactoryGirl.create(:item, user: user, category: category) }
 
     it 'requires a unique name' do
-      dupe_item.name = item.name
+      item_2.name = item.name
       expect(item_2).to_not be_valid
       expect(item_2.errors[:name]).to_not be_empty
     end

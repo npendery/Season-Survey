@@ -18,6 +18,7 @@ feature 'user visits items index', %{
     item2 = FactoryGirl.create(:item, user: user, category: category2)
 
     visit root_path
+
     click_on category1.name
     expect(page).to have_content(item1.name)
     expect(page).to_not have_content(item2.name)

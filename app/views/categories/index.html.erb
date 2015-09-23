@@ -1,5 +1,14 @@
-<ul>
+<div class="row">
   <% @categories.each do |category| %>
-    <li><%= link_to category.name, category_path(category) %></li>
+    <div class="columns small-4">
+      <div class="float_text">
+        <%= link_to category.name,
+            category_path(category)%>
+      </div>
+      <div class="sit_image">
+        <%= link_to image_tag(category.image),
+            category_path(category)%>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>

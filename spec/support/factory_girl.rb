@@ -8,7 +8,7 @@ FactoryGirl.define do
   end
 
   factory :category do
-    name 'Clothing'
+    name 'Fashion'
   end
 
   factory :item do

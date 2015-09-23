@@ -1,0 +1,13 @@
+<h1>Add a Review</h1>
+
+  <%= form_for [@item, @review] do |f| %>
+    <%= f.label :rating %>
+    <%= f.collection_radio_buttons :rating, Review::RATINGS, :to_i, :to_i %>
+    <br>
+    <br>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <br>
+    <br>
+    <%= f.submit "Create Review" %>
+  <% end %>

@@ -8,7 +8,10 @@ class ItemsController < ApplicationController
   end
 
   def create
+    authenticate_user!
     @item = Item.new(item_params)
+    @user = current_user
+    @item.user = @user
 
     if @item.save
       flash[:accepted] = "Item added."
@@ -21,11 +24,13 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @reviews = @item.reviews
   end
 
   protected
 
   def item_params
-    params.require(:item).permit(:name, :description, :image, :purchase_url)
+    list = [:name, :description, :image, :purchase_url, :category_id]
+    params.require(:item).permit(list)
   end
 end

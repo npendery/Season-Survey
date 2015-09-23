@@ -1,0 +1,9 @@
+<p>
+  <%= link_to 'Create Item', new_item_path %>
+</p>
+
+<ul>
+  <% @categories.each do |cat| %>
+    <li><%= cat.name %></li>
+  <% end %>
+</ul>

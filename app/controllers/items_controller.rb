@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.where(category_id: params[:category])
+    # @items = Item.where(category_id: params[:category])
     @category = Category.find(params[:category])
+    @items = @category.items
   end
 
   def new

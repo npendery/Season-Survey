@@ -7,14 +7,14 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :category do
+    name 'food'
+  end
+
   factory :item do
     sequence(:name) { |n| "Item #{n}" }
     image 'https://www.image.png'
     description 'item description'
-    category_id 1
   end
 
-  factory :category do
-    name 'food'
-  end
 end

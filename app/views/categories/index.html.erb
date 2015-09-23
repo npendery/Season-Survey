@@ -1,5 +1,6 @@
-<ul>
-  <% @categories.each do |cat| %>
-    <li><%= link_to cat.name, items_path(:category => cat.id) %></li>
-  <% end %>
-</ul>
+
+<% @categories.each do |cat| %>
+  <nav class="top-bar" >
+    <li><%= link_to cat.name, items_path(:category => cat.id)%></li>
+  </nav>
+<% end %>

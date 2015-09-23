@@ -11,8 +11,8 @@ feature 'user registers', %{
   # * Visitor must see a list of categories that are links to other pages
 
   scenario 'user visits root path' do
-    item = FactoryGirl.create(:item)
     category = FactoryGirl.create(:category)
+    item = FactoryGirl.create(:item, category: category)
 
     visit root_path
     expect(page).to have_content("Sign In")

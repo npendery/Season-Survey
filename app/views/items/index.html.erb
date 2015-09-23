@@ -1,5 +1,7 @@
 <ul>
   <% @items.each do |item| %>
-    <li><%= item.name %></li>
+    <% if @category.include? item %>
+      <li><%= item.name %></li>
+    <% end %>
   <% end %>
 </ul>

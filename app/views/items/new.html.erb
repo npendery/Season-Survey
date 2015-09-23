@@ -17,6 +17,10 @@
     <%= f.text_field :image %>
     <br>
     <br>
+    <%= f.label :category_id %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+    <br>
+    <br>
     <%= f.submit "Add Item" %>
   <% end %>
 <br>

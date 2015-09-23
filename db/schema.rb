@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150923174143) do
     t.string  "image",        null: false
     t.string  "description",  null: false
     t.string  "purchase_url"
+    t.integer "user_id"
     t.integer "category_id"
   end
 

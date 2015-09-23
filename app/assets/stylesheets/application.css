@@ -17,7 +17,7 @@
  */
 .float_text a{
   position: relative;
-  top: 15em;
+  top: 10em;
   text-align: center;
   width: 60%;
   color: white;
@@ -29,6 +29,6 @@
 }
 
 .sit_image{
-  position: relative;
+  position: static;
   width: 100%;
 }

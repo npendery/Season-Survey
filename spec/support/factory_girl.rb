@@ -8,13 +8,14 @@ FactoryGirl.define do
   end
 
   factory :category do
-    name 'food'
+    name 'Fashion'
   end
 
   factory :item do
     sequence(:name) { |n| "Item #{n}" }
     image 'https://www.image.png'
     description 'item description'
+    category
+    user
   end
-
 end

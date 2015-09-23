@@ -1,0 +1,11 @@
+<h1> <%= @item.name %> </h1>
+  <br>
+<% if @item.description.present? %>
+  <h3> Description </h3>
+    <div>
+      <%= @item.description %>
+    </div>
+<% end %>
+
+
+<%= link_to "Back", root_path %>

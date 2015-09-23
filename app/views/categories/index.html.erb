@@ -1,3 +1,6 @@
+<p>
+  <%= link_to 'Create Item', new_item_path %>
+</p>
 <ul>
   <% @categories.each do |cat| %>
     <li><%= link_to cat.name, items_path(:category => cat.name) %></li>

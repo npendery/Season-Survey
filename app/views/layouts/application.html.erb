@@ -33,8 +33,11 @@
   <%- end -%>
 
   <%= yield %>
-
+  <p>
+    <%= link_to 'Create Item', new_item_path %>
+  </p>
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
+
 </body>
 </html>

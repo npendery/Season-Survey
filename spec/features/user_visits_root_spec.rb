@@ -18,6 +18,6 @@ feature 'user registers', %{
     visit root_path
     expect(page).to have_content("Sign In")
     expect(page).to have_content(category.name)
-    expect(page).to_not have_content(item.purchase_url)
+    expect(page).to_not have_content(item.description)
   end
 end

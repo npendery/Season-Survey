@@ -14,7 +14,7 @@ feature 'user creates item', %{
     user = FactoryGirl.create(:user)
 
     sign_in(user)
-    
+
     click_on 'Create Item'
 
     fill_in "Name", with: "Fuzzy wuzzy snuffaluffagus"

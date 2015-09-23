@@ -7,7 +7,6 @@ Item.create(name: "hot chocolate", image: "adkjf.png",
             purchase_url: "www.dfjhs.com")
 Item.create(name: "cold chocolate", image: "asdfdkjf.png",
             category_id: 1, description: "not")
-# 
 # [
 #   'Fashion',
 #   'Food',

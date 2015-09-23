@@ -15,7 +15,9 @@ RSpec.describe Item, type: :model do
     let!(:user) { FactoryGirl.create(:user) }
     let!(:category) { FactoryGirl.create(:category) }
     let!(:item) { FactoryGirl.create(:item, user: user, category: category) }
-    let!(:dupe_item) { FactoryGirl.create(:item, user: user, category: category) }
+    let!(:dupe_item) { FactoryGirl.create(:item,
+      user: user,
+      category: category) }
 
     it 'requires a unique name' do
       dupe_item.name = item.name

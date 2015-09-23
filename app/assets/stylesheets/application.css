@@ -15,3 +15,20 @@
  *= require foundation_and_overrides
 
  */
+.float_text a{
+  position: relative;
+  top: 15em;
+  text-align: center;
+  width: 60%;
+  color: white;
+  font: bold 24px/45px Helvetica, Sans-Serif;
+  letter-spacing: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  font-variant: small-caps;
+}
+
+.sit_image{
+  position: relative;
+  width: 100%;
+}

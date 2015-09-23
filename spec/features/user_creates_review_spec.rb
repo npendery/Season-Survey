@@ -25,18 +25,19 @@ feature 'user creates review', %{
     click_on 'Add Review'
 
     choose 3
-    fill_in "Description", with: "It's big, and hairy"
 
-    click_on "Add Rating"
+    fill_in "Description", with: "Soaks through"
 
-    expect(page).to have_content("Rating added.")
-    expect(page).to have_content("It's big, and hairy")
+    click_on "Create Review"
+
+    expect(page).to have_content("Review added.")
+    expect(page).to have_content("Soaks through")
   end
 
   scenario 'create unsucccessful review, without rating' do
     user = FactoryGirl.create(:user)
     category = FactoryGirl.create(:category)
-    item = Item.create!(name: "Snow boots", description: "Fluffy", image: "www.zappos.com", purchase_url: "www.zappos.com", user_id: user, category_id: category)
+    item = Item.create!(name: "Snow boots", description: "Fluffy", image: "www.zappos.com", purchase_url: "www.zappos.com", user_id: user.id, category_id: category.id)
 
     visit new_user_session_path
 
@@ -45,24 +46,23 @@ feature 'user creates review', %{
 
     click_button 'Log in'
 
-    click_on 'category.name'
+    click_on category.name
 
-    click_on 'item.name'
+    click_on item.name
 
     click_on 'Add Review'
 
-    fill_in "Rating", with: ''
-    fill_in "Description", with: "It's big, and hairy"
+    fill_in "Description", with: "Soaks through"
 
-    click_on "Add Rating"
+    click_on "Create Review"
 
-    expect(page).to have_content("Rating can't be blank.")
+    expect(page).to have_content("Rating can't be blank")
   end
 
   scenario 'create unsucccessful review, without description' do
     user = FactoryGirl.create(:user)
     category = FactoryGirl.create(:category)
-    item = Item.create!(name: "Snow boots", description: "Fluffy", image: "www.zappos.com", purchase_url: "www.zappos.com", user_id: user, category_id: category)
+    item = Item.create!(name: "Snow boots", description: "Fluffy", image: "www.zappos.com", purchase_url: "www.zappos.com", user_id: user.id, category_id: category.id)
 
     visit new_user_session_path
 
@@ -71,17 +71,18 @@ feature 'user creates review', %{
 
     click_button 'Log in'
 
-    click_on 'category.name'
+    click_on category.name
 
-    click_on 'item.name'
+    click_on item.name
 
     click_on 'Add Review'
 
-    fill_in "Rating", with: 3
+    choose 3
+
     fill_in "Description", with: ""
 
-    click_on "Add Rating"
+    click_on "Create Review"
 
-    expect(page).to have_content("Description can't be blank.")
+    expect(page).to have_content("Description can't be blank")
   end
 end

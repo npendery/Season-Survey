@@ -7,7 +7,6 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
-
   factory :item do
     sequence(:name) { |n| "Item #{n}" }
     image 'https://www.image.png'

@@ -17,7 +17,6 @@ feature 'user visits items index', %{
 
     visit root_path
     click_on category.name
-  # binding.pry
     expect(page).to have_content(item1.name)
     expect(page).to_not have_content(item2.name)
   end

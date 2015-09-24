@@ -23,7 +23,7 @@ feature 'user creates item', %{
     fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
     select "Fashion", from: "Category"
 
-    click_on "Add Item"
+    click_on "Submit"
 
     expect(page).to have_content("Item added.")
     expect(page).to have_content("It's big, and hairy")
@@ -42,7 +42,7 @@ feature 'user creates item', %{
     fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
     select "Fashion", from: 'Category'
 
-    click_on "Add Item"
+    click_on "Submit"
     expect(page).to have_content("Name can't be blank")
   end
 
@@ -59,7 +59,7 @@ feature 'user creates item', %{
     fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
     select "Fashion", from: 'Category'
 
-    click_on "Add Item"
+    click_on "Submit"
 
     expect(page).to have_content("Description can't be blank")
   end

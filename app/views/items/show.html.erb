@@ -27,7 +27,11 @@
 <%= link_to "Add Review", new_item_review_path(@item) %>
 
 <% if @item.user == current_user %>
-  <%= link_to "Update Item", edit_item_path(@item) %>
+  <div><%= link_to "Update Item", edit_item_path(@item) %></div>
+  <br>
+  <br>
+  <div><%= link_to "Delete Item", item_path(@item), method: :delete %></div>
 <% end %>
-
+<br>
+<br>
 <%= link_to "Back", root_path %>

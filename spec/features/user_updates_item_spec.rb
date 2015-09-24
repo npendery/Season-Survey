@@ -6,9 +6,6 @@ feature 'user updates item', %{
   So that other users can rate and review it
 } do
 
-  before do
-  end
-
   scenario 'updates item succcessfully' do
     category = FactoryGirl.create(:category)
     user = FactoryGirl.create(:user)

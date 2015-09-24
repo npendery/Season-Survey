@@ -31,7 +31,6 @@ feature 'user updates review', %{
     user2 = FactoryGirl.create(:user)
     category = FactoryGirl.create(:category)
     item = FactoryGirl.create(:item, user: user1, category: category)
-    review = FactoryGirl.create(:review, user: user1, item: item)
 
     sign_in(user2)
     visit item_path(item)

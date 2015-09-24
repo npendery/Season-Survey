@@ -36,7 +36,7 @@ class ReviewsController < ApplicationController
       render :edit
     end
   end
-  
+
   protected
 
   def review_params

@@ -29,6 +29,25 @@ class ItemsController < ApplicationController
     @reviews = @item.reviews
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    authenticate_user!
+    @item = Item.new(item_params)
+    @item.user = current_user
+
+    if @item.save
+      flash[:accepted] = "Item updated."
+      redirect_to item_path(@item)
+    else
+      flash[:errors] = @item.errors.full_messages.join(". ")
+      @item = Item.find(params[:id])
+      render :edit
+    end
+  end
+
   protected
 
   def item_params

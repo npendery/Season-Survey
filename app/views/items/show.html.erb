@@ -18,6 +18,7 @@
 
         <% if @user == review.user %>
           <p><%= link_to "Edit Review", edit_item_review_path(@item, review) %></p>
+          <p><%= button_to "Delete Review", review_path(review), method: :delete %></p>
         <% end %>
 
       <% end %>

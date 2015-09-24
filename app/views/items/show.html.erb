@@ -1,34 +1,38 @@
-<h1> <%= @item.name %> </h1>
-  <br>
-<%= @item.image %>
-<br>
-<% if @item.description.present? %>
-  <h3> Description </h3>
-    <div>
-      <%= @item.description %>
-    </div>
-<% end %>
+<div class="row">
+  <div class="columns small-4">
+    <div class="float_text"><%= @item.name %> </div>
+      <br>
+    <div class="right_image"><img src=<%= @item.image %>></div>
+    <br>
+    <% if @item.description.present? %>
+      <h3> Description </h3>
+        <div>
+          <%= @item.description %>
+        </div>
+    <% end %>
 
-<% if @item.reviews.present? %>
-  <h3> Reviews </h3>
-    <div>
-      <% @item.reviews.each do |review| %>
-        <p><%= review.rating %></p>
-        <p><%= review.description %></p>
+    <% if @item.reviews.present? %>
+      <h3> Reviews </h3>
+        <div>
+          <% @item.reviews.each do |review| %>
+            <p><%= review.rating %></p>
+            <p><%= review.description %></p>
 
         <% if @user == review.user %>
           <p><%= link_to "Edit Review", edit_item_review_path(@item, review) %></p>
           <p><%= button_to "Delete Review", review_path(review), method: :delete %></p>
         <% end %>
 
-      <% end %>
-    </div>
-<% end %>
+          <% end %>
+        </div>
+    <% end %>
 
-<%= link_to "Add Review", new_item_review_path(@item) %>
+    <%= link_to "Add Review", new_item_review_path(@item) %>
 
-<% if @item.user == current_user %>
-  <%= link_to "Update Item", edit_item_path(@item) %>
-<% end %>
+    <% if @item.user == current_user %>
+      <%= link_to "Update Item", edit_item_path(@item) %>
+    <% end %>
 
-<%= link_to "Back", root_path %>
+    <%= link_to "Back", root_path %>
+  </div>
+</div>

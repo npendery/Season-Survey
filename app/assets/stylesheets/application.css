@@ -33,6 +33,15 @@
   width: 100%;
 }
 
-.right_image{
+.right_text{
+  float: right;
+}
 
+.talk{
+  background-color: #6E92A1;
+  align-content: center; 
+}
+
+ul{
+  list-style-type: none;
 }

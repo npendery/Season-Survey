@@ -7,6 +7,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'foundation-rails'
+gem 'faker'
+gem 'as-duration'
 
 group :test do
   gem 'coveralls', require: false

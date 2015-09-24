@@ -4,9 +4,9 @@ Category.create(name: "fashion", image: "http://i.imgur.com/q3biltH.jpg")
 
 Item.create(name: "hot chocolate", image: "adkjf.png",
             category_id: 1, description: "amazazing",
-            purchase_url: "www.dfjhs.com")
+            purchase_url: "www.dfjhs.com", user_id: 1)
 Item.create(name: "cold chocolate", image: "asdfdkjf.png",
-            category_id: 1, description: "not")
+            category_id: 1, description: "not", user_id: 1)
 # [
 #   'Fashion',
 #   'Food',

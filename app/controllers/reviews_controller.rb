@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+  def index
+    @reviews = Review.all
+  end
+
   def new
     @item = Item.find(params[:item_id])
     @review = Review.new
@@ -18,8 +22,19 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def index
-    @reviews = Review.all
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      flash[:notice] = 'Review updated.'
+      redirect_to item_path(@review.item)
+    else
+      flash[:notice] = @review.errors.full_messages.join(". ")
+      render :edit
+    end
   end
 
   protected

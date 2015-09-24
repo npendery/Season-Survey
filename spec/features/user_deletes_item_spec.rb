@@ -22,7 +22,7 @@ feature 'user deletes item', %{
     expect(page).to have_content(category.name)
   end
 
-	scenario 'deletes item unsucccessfully' do
+  scenario 'deletes item unsucccessfully' do
     category = FactoryGirl.create(:category)
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)

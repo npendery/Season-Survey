@@ -7,7 +7,7 @@ feature 'user views item show page', %{
 } do
 
   # Acceptance Criteria:
-  # User must see name, description, image of item
+  # User must see name, description of item
   # User must see all reviews of that item
   # User must be able to add a new review for that item
 
@@ -20,7 +20,6 @@ feature 'user views item show page', %{
     visit item_path(item)
     expect(page).to have_content(item.name)
     expect(page).to have_content(item.description)
-    expect(page).to have_content(item.image)
 
     expect(page).to have_content(review.rating)
     expect(page).to have_content(review.description)

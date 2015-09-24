@@ -49,6 +49,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @category = @item.category
+    @item.destroy
+    flash[:accepted] = "Item deleted."
+    redirect_to category_path(@category)
+  end
+
   protected
 
   def item_params

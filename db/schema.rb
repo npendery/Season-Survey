@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20150924140734) do
 
   # These are extensions that must be enabled in order to support this database
@@ -29,11 +30,7 @@ ActiveRecord::Schema.define(version: 20150924140734) do
     t.string  "description",  null: false
     t.string  "purchase_url"
     t.integer "category_id"
-<<<<<<< HEAD
-    t.integer "user_id"
-=======
     t.integer "user_id",      null: false
->>>>>>> master
   end
 
   add_index "items", ["name"], name: "index_items_on_name", unique: true, using: :btree

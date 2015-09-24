@@ -36,10 +36,10 @@ class ItemsController < ApplicationController
 
   def update
     authenticate_user!
-    @item = Item.new(item_params)
-    @item.user = current_user
+    @user = current_user
+    @item = Item.find(params[:id])
 
-    if @item.save
+    if @item.update(item_params) && @item.user == @user
       flash[:accepted] = "Item updated."
       redirect_to item_path(@item)
     else
@@ -49,6 +49,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @category = @item.category
+    @item.destroy
+    flash[:accepted] = "Item deleted."
+    redirect_to category_path(@category)
+  end
+  
   protected
 
   def item_params

@@ -6,9 +6,10 @@ RSpec.describe Category, type: :model do
 
   context 'uniqueness' do
     let!(:category) { FactoryGirl.create(:category) }
-    let!(:dupe_category) { FactoryGirl.build(:category) }
+    let!(:dupe_category) { FactoryGirl.create(:category) }
 
     it 'requires a unique name' do
+      dupe_category.name = category.name
       expect(dupe_category).to_not be_valid
       expect(dupe_category.errors[:name]).to_not be_empty
     end

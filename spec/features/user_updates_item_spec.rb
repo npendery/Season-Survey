@@ -6,54 +6,42 @@ feature 'user updates item', %{
   So that other users can rate and review it
 } do
 
-  before do
-    FactoryGirl.create(:category)
-  end
-
   scenario 'updates item succcessfully' do
+    category = FactoryGirl.create(:category)
     user = FactoryGirl.create(:user)
-    # item = FactoryGirl.create(:item)
+    item = FactoryGirl.create(:item, user: user, category: category)
     sign_in(user)
 
-    click_on 'Create Item'
+    click_on category.name
 
-    fill_in "Name", with: "Boots"
-    fill_in "Description", with: "Theyre....boots"
-    fill_in "Where to Purchase", with: "The zoo on Sesame St."
-    fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
-    select "Fashion", from: 'Category'
-
-    click_on "Submit"
+    click_on item.name
 
     click_on 'Update Item'
 
-    fill_in "Name", with: "Bobs boots"
+    fill_in "Name", with: "Super boots"
 
     click_on "Submit"
+
     expect(page).to have_content("Item updated.")
-    expect(page).to have_content("Bobs boots")
+    expect(page).to have_content("Super boots")
   end
 
   scenario 'updates item unsucccessfully, with no name' do
+    category = FactoryGirl.create(:category)
     user = FactoryGirl.create(:user)
-    # item = FactoryGirl.create(:item)
+    item = FactoryGirl.create(:item, user: user, category: category)
     sign_in(user)
 
-    click_on 'Create Item'
+    click_on category.name
 
-    fill_in "Name", with: "Boots"
-    fill_in "Description", with: "Theyre....boots"
-    fill_in "Where to Purchase", with: "The zoo on Sesame St."
-    fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
-    select "Fashion", from: 'Category'
-
-    click_on "Submit"
+    click_on item.name
 
     click_on 'Update Item'
 
     fill_in "Name", with: ""
 
     click_on "Submit"
+
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Edit Item")
   end

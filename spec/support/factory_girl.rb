@@ -8,11 +8,11 @@ FactoryGirl.define do
   end
 
   factory :category do
-    name 'Fashion'
+    sequence(:name) { |n| "Fashion #{n}" }
   end
 
   factory :item do
-    sequence(:name) { |n| "Itemy #{n}" }
+    sequence(:name) { |n| "Item #{n}" }
     image 'https://www.image.png'
     description 'item description'
     category

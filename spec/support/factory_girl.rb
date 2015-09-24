@@ -18,4 +18,11 @@ FactoryGirl.define do
     category
     user
   end
+
+  factory :review do
+    description 'So awesome!'
+    rating 5
+    item
+    user
+  end
 end

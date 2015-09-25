@@ -12,12 +12,13 @@ feature 'user searches for item', %{
     item = FactoryGirl.create(:item, user: user, category: category)
     sign_in(user)
 
-    fill_in "Search_Bar", with: item.name
+    fill_in "search", with: item.name
 
     click_on "Search"
 
-		expect(page).to have_content("Search results")
+		expect(page).to have_content("Search Results")
     expect(page).to have_content(item.name)
+    expect(page).to_not have_content("No Results")
   end
 
 	scenario 'searches for item not in database' do
@@ -26,11 +27,11 @@ feature 'user searches for item', %{
 		item = FactoryGirl.create(:item, user: user, category: category)
 		sign_in(user)
 
-		fill_in "Search_Bar", with: "armadillo pizza"
+		fill_in "search", with: "armadillo pizza"
 
 		click_on "Search"
 
-		expect(page).to have_content("Search results")
-		expect(page).to have_content("No results found")
+		expect(page).to have_content("Search Results")
+		expect(page).to have_content("No Results")
 	end
 end

@@ -1,0 +1,15 @@
+<h3>Search Results</h3>
+
+<ul>
+	<% if @search_results.empty? %>
+		<p>No Results</p>
+	<% else  %>
+	  <% @search_results.each do |result| %>
+			<% if result.class == Item %>
+	    	<li><%= link_to result.name, item_path(result) %></li>
+				<% else %>
+				<li><%= link_to result.item.name, item_path(result.item) %></li>
+			<% end %>
+	  <% end %>
+	<% end %>
+</ul>

@@ -19,12 +19,7 @@
       <ul class="right">
         <li class="has-form">
           <div class="row collapse">
-            <div class="large-8 small-9 columns">
-              <input type="text" name="Search_Bar" placeholder="doesn't funtion yet">
-            </div>
-            <div class="large-4 small-3 columns">
-              <a class="alert button expand"> <%= link_to "Search", search_path %> </a>
-            </div>
+            <%= render "layouts/search" %>
           </div>
         </li>
           <li><%= link_to 'Create Item', new_item_path %></li>

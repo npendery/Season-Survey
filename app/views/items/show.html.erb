@@ -1,6 +1,7 @@
 <div class="row">
-  <div class="columns small-4">
-    <h1 class="float_text"><%= @item.name %> </h1>
+  <h1 class="float_text"><%= @item.name %> </h1>
+  <div class="columns small-8">
+
       <br>
     <div><img src=<%= @item.image %>></div>
     <br>
@@ -11,7 +12,7 @@
     <% end %>
   </div>
 
-  <div class="right_text">
+  <div class="right_text columns small-4 end">
     <ul>
       <% if @item.user == current_user %>
         <li><%= link_to "Update Item", edit_item_path(@item) %></li>
@@ -24,22 +25,23 @@
   </div>
 </div>
 
-<div class="row talk">
-  <div class="columns small-4">
-    <% if @item.reviews.present? %>
-      <h4> Talk </h4>
-        <div>
-          <% @item.reviews.each do |review| %>
-            <p><%= review.rating %></p>
-            <p><%= review.description %></p>
+<div class="row">
+  <% if @item.reviews.present? %>
+    <h4> Talk </h4>
+      <div>
+        <ul>
+        <% @item.reviews.each do |review| %>
+          <li>Rating: <%= review.rating %></li>
+          <li><%= review.description %></li>
 
-            <% if @user == review.user %>
-              <p><%= link_to "Edit Review", edit_item_review_path(@item, review) %></p>
-              <p><%= button_to "Delete Review", review_path(review), method: :delete %></p>
-            <% end %>
-
+          <% if @user == review.user %>
+            <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
+            <%= link_to "Delete", review_path(review), method: :delete %></li>
           <% end %>
-        </div>
-    <% end %>
-  </div>
+          <br>
+
+        <% end %>
+      </ul>
+      </div>
+  <% end %>
 </div>

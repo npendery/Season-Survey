@@ -7,18 +7,18 @@ feature 'user searches for item', %{
 } do
 
   scenario 'searches for item in database' do
-      category = FactoryGirl.create(:category)
-      user = FactoryGirl.create(:user)
-      item = FactoryGirl.create(:item, user: user, category: category)
-      sign_in(user)
+    category = FactoryGirl.create(:category)
+    user = FactoryGirl.create(:user)
+    item = FactoryGirl.create(:item, user: user, category: category)
+    sign_in(user)
 
-      fill_in "search", with: item.name
+    fill_in "search", with: item.name
 
-      click_on "Search"
+    click_on "Search"
 
-      expect(page).to have_content("Search Results")
-      expect(page).to have_content(item.name)
-      expect(page).to_not have_content("No Results")
+    expect(page).to have_content("Search Results")
+    expect(page).to have_content(item.name)
+    expect(page).to_not have_content("No Results")
   end
 
   scenario 'searches for item not in database' do

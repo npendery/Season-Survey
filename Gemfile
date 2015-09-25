@@ -9,6 +9,9 @@ gem 'devise'
 gem 'foundation-rails'
 gem 'textacular', '~> 3.0'
 gem 'ransack'
+gem 'faker'
+gem 'as-duration'
+
 
 group :test do
   gem 'coveralls', require: false

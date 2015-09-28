@@ -13,7 +13,6 @@ feature 'user searches for item', %{
     sign_in(user)
 
     fill_in "search", with: item.name
-
     click_on "Search"
 
     expect(page).to have_content("Search Results")
@@ -28,7 +27,6 @@ feature 'user searches for item', %{
     sign_in(user)
 
     fill_in "search", with: "armadillo pizza"
-
     click_on "Search"
 
     expect(page).to have_content("Search Results")

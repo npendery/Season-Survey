@@ -12,7 +12,6 @@ gem 'ransack'
 gem 'faker'
 gem 'as-duration'
 
-
 group :test do
   gem 'coveralls', require: false
 end
@@ -31,3 +30,5 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
 end
+
+gem 'rails_12factor', group: :production

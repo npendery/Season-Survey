@@ -21,9 +21,7 @@ feature 'user searches for item', %{
   end
 
   scenario 'searches for item not in database' do
-    category = FactoryGirl.create(:category)
     user = FactoryGirl.create(:user)
-    item = FactoryGirl.create(:item, user: user, category: category)
     sign_in(user)
 
     fill_in "search", with: "armadillo pizza"

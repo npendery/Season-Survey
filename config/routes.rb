@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: [:index, :new, :create, :edit, :update, :destroy]
+
+  resources :searches, only: [:index]
 end

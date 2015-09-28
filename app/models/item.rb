@@ -10,4 +10,9 @@ class Item < ActiveRecord::Base
   validates :description, presence: true
   validates :category, presence: true
   validates :user, presence: true
+
+  def self.search(search)
+    where('name ILIKE ?', "%#{search}%") |
+      where('description ILIKE ?', "%#{search}%")
+  end
 end

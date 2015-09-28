@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
   def index
-    # @items = Item.where(category_id: params[:category])
     @category = Category.find(params[:category])
-    @items = @category.items
+    @items = @category.items.order(created_at: :desc).page params[:page]
   end
 
   def new

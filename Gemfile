@@ -11,6 +11,7 @@ gem 'textacular', '~> 3.0'
 gem 'ransack'
 gem 'faker'
 gem 'as-duration'
+gem 'kaminari'
 
 group :test do
   gem 'coveralls', require: false

@@ -20,7 +20,7 @@
       <% end %>
       <br>
       <li><%= link_to "Add Review", new_item_review_path(@item) %></li>
-      <li><%= link_to "Back", root_path %></li>
+      <li><%= link_to "Back", category_path(@item.category) %></li>
     </ul>
   </div>
 </div>

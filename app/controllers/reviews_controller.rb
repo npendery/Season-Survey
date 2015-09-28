@@ -51,7 +51,7 @@ class ReviewsController < ApplicationController
   protected
   def authorize_user
     if !user_signed_in? &&
-       !(current_user.admin? || @review.user == current_user)
+        !(current_user.admin? || @review.user == current_user)
       raise ActionController::RoutingError.new("Not Found")
     end
   end

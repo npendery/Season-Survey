@@ -26,7 +26,12 @@ feature 'user sees only 5 items per page', %{
 
     click_on category.name
     expect(page).to have_content(item7.name)
+    expect(page).to have_content(item6.name)
+    expect(page).to have_content(item5.name)
+    expect(page).to have_content(item4.name)
+    expect(page).to have_content(item3.name)
     expect(page).to_not have_content(item1.name)
+    expect(page).to_not have_content(item2.name)
   end
 
   scenario 'views category second page with items after the first 5' do
@@ -51,7 +56,12 @@ feature 'user sees only 5 items per page', %{
 
     click_on "Next"
 
+    expect(page).to have_content(item2.name)
     expect(page).to have_content(item1.name)
     expect(page).to_not have_content(item7.name)
+    expect(page).to_not have_content(item6.name)
+    expect(page).to_not have_content(item5.name)
+    expect(page).to_not have_content(item4.name)
+    expect(page).to_not have_content(item3.name)
   end
 end

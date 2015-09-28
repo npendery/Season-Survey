@@ -14,8 +14,8 @@ feature 'user searches for item', %{
 
     fill_in "search", with: item.name
     click_on "Search"
-
     expect(page).to have_content("Search Results")
+
     expect(page).to have_content(item.name)
     expect(page).to_not have_content("No Results")
   end

@@ -31,7 +31,7 @@ feature 'user views item show page', %{
 
     sign_in(review.user)
     visit item_path(review.item)
-    click_on "Delete Review"
+    click_on "Delete"
     expect(page).to_not have_content(review)
   end
 
@@ -42,6 +42,6 @@ feature 'user views item show page', %{
 
     sign_in(user2)
     visit item_path(review.item)
-    expect(page).to_not have_content("Delete Review")
+    expect(page).to_not have_content("Edit or Delete")
   end
 end

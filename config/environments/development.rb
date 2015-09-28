@@ -13,7 +13,7 @@ Rails.application.configure do
     host: "localhost",
     port: 3000
   }
-  
+
   config.cache_classes = false
 
   # Do not eager load code on boot.

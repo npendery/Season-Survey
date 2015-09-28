@@ -18,7 +18,7 @@ feature 'user updates review', %{
 
     sign_in(item.user)
     visit item_path(item)
-    click_on "Edit Review"
+    click_on "Edit"
     choose 3
     click_on "Submit Edits"
 
@@ -34,6 +34,6 @@ feature 'user updates review', %{
 
     sign_in(user2)
     visit item_path(item)
-    expect(page).to_not have_content("Edit Review")
+    expect(page).to_not have_content("Edit")
   end
 end

@@ -15,20 +15,55 @@
  *= require foundation_and_overrides
 
  */
-.float_text a{
+$white: #ffffff;
+
+.float-text a {
   position: relative;
   top: 10em;
   text-align: center;
   width: 60%;
-  color: white;
-  font: bold 24px/45px Helvetica, Sans-Serif;
-  letter-spacing: 6px;
   background: rgba(0, 0, 0, 0.6);
-  padding: 10px;
+  color: $white;
+  font: bold 24px/45px Helvetica, Sans-Serif;
   font-variant: small-caps;
+  letter-spacing: 6px;
+  padding: 10px;
 }
 
-.sit_image{
+.sit-image {
   position: static;
   width: 100%;
+}
+
+.right-text {
+  float: right;
+}
+
+.container {
+  h1 {
+    background: rgba(0, 0, 0, 0.6);
+    color: $white;
+    font: bold 24px/45px Helvetica, Sans-Serif;
+    font-variant: small-caps;
+    letter-spacing: 6px;
+    padding: 10px;
+  }
+}
+
+h4 {
+  background: rgba(0, 0, 0, 0.6);
+  color: $white;
+  font: bold 24px/45px Helvetica, Sans-Serif;
+  font-variant: small-caps;
+  letter-spacing: 6px;
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 4px;
+}
+
+.small-font {
+  font-size: 10px;
 }

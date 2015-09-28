@@ -7,7 +7,7 @@ feature 'user searches for item', %{
 } do
 
   scenario 'searches for item in database' do
-     category = FactoryGirl.create(:category)
+    category = FactoryGirl.create(:category)
     user = FactoryGirl.create(:user)
     item = FactoryGirl.create(:item, user: user, category: category)
     sign_in(user)

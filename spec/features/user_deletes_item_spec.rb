@@ -13,9 +13,7 @@ feature 'user deletes item', %{
     sign_in(user)
 
     click_on category.name
-
     click_on item.name
-
     click_on 'Delete Item'
 
     expect(page).to have_content("Item deleted.")
@@ -30,7 +28,6 @@ feature 'user deletes item', %{
     sign_in(user1)
 
     click_on category.name
-
     click_on item.name
 
     expect(page).to_not have_content("Delete Item")

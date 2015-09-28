@@ -13,6 +13,6 @@ class Item < ActiveRecord::Base
 
   def self.search(search)
     where('name ILIKE ?', "%#{search}%") |
-    where('description ILIKE ?', "%#{search}%")
+      where('description ILIKE ?', "%#{search}%")
   end
 end

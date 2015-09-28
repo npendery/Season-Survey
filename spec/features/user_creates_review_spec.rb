@@ -24,6 +24,7 @@ feature 'user creates review', %{
 
     expect(page).to have_content("Review added.")
     expect(page).to have_content("Soaks through")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario 'create unsucccessful review, without rating' do

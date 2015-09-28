@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorize_user, except: [:index, :show, :new, :create]
+
   def index
-    # @items = Item.where(category_id: params[:category])
     @category = Category.find(params[:category])
     @items = @category.items
   end
@@ -58,6 +60,11 @@ class ItemsController < ApplicationController
   end
 
   protected
+  def authorize_user
+    if !user_signed_in? && !(current_user.admin? || @item.user == current_user)
+        raise ActionController::RoutingError.new("Not Found")
+    end
+  end
 
   def item_params
     list = [:name, :description, :image, :purchase_url, :category_id]

@@ -14,9 +14,11 @@
 
   <div class="right_text columns small-4 end">
     <ul>
-      <% if @item.user == current_user %>
-        <li><%= link_to "Update Item", edit_item_path(@item) %></li>
-        <li><%= link_to "Delete Item", item_path(@item), method: :delete %></li>
+      <% if current_user %>
+        <% if current_user.admin? || (@item.user == current_user) %>
+          <li><%= link_to "Update Item", edit_item_path(@item) %></li>
+          <li><%= link_to "Delete Item", item_path(@item), method: :delete %></li>
+        <% end %>
       <% end %>
       <br>
       <li><%= link_to "Add Review", new_item_review_path(@item) %></li>
@@ -34,9 +36,11 @@
           <li>Rating: <%= review.rating %></li>
           <li><%= review.description %></li>
 
-          <% if @user == review.user %>
-            <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
-            <%= link_to "Delete", review_path(review), method: :delete %></li>
+          <% if current_user %>
+            <% if current_user.admin? || (@user == review.user) %>
+              <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
+              <%= link_to "Delete", review_path(review), method: :delete %></li>
+            <% end %>
           <% end %>
           <br>
 

@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authorize_user, except: [:index, :show, :new, :create]
+
   def index
     @reviews = Review.all
   end
@@ -9,7 +12,6 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    authenticate_user!
     item = Item.find(params[:item_id])
     @review = item.reviews.build(review_params)
     @review.user = current_user
@@ -46,6 +48,11 @@ class ReviewsController < ApplicationController
   end
 
   protected
+  def authorize_user
+    if !user_signed_in? && !(current_user.admin? || @review.user == current_user)
+        raise ActionController::RoutingError.new("Not Found")
+    end
+  end
 
   def review_params
     params.require(:review).permit(:rating, :description, :item_id)

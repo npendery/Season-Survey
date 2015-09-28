@@ -1,39 +1,47 @@
 <div class="row">
-  <div class="columns small-4">
-    <div class="float_text"><%= @item.name %> </div>
+  <h1 class="float-text"><%= @item.name %> </h1>
+  <div class="columns small-8">
+
       <br>
-    <div class="right_image"><img src=<%= @item.image %>></div>
+    <div><img src=<%= @item.image %>></div>
     <br>
     <% if @item.description.present? %>
-      <h3> Description </h3>
         <div>
           <%= @item.description %>
         </div>
     <% end %>
+  </div>
 
-    <% if @item.reviews.present? %>
-      <h3> Reviews </h3>
-        <div>
-          <% @item.reviews.each do |review| %>
-            <p><%= review.rating %></p>
-            <p><%= review.description %></p>
+  <div class="right_text columns small-4 end">
+    <ul>
+      <% if @item.user == current_user %>
+        <li><%= link_to "Update Item", edit_item_path(@item) %></li>
+        <li><%= link_to "Delete Item", item_path(@item), method: :delete %></li>
+      <% end %>
+      <br>
+      <li><%= link_to "Add Review", new_item_review_path(@item) %></li>
+      <li><%= link_to "Back", root_path %></li>
+    </ul>
+  </div>
+</div>
 
-            <% if @user == review.user %>
-              <p><%= link_to "Edit Review", edit_item_review_path(@item, review) %></p>
-            <% end %>
+<div class="row">
+  <% if @item.reviews.present? %>
+    <h4> Talk </h4>
+      <div>
+        <ul>
+        <% @item.reviews.each do |review| %>
+          <li>Rating: <%= review.rating %></li>
+          <li><%= review.description %></li>
 
+          <% if @user == review.user %>
+            <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
+            <%= link_to "Delete", review_path(review), method: :delete %></li>
           <% end %>
-        </div>
-    <% end %>
+          <br>
 
-    <%= link_to "Add Review", new_item_review_path(@item) %>
-
-<% if @item.user == current_user %>
-  <div><%= link_to "Update Item", edit_item_path(@item) %></div>
-  <br>
-  <br>
-  <div><%= link_to "Delete Item", item_path(@item), method: :delete %></div>
-<% end %>
-<br>
-<br>
-<%= link_to "Back", root_path %>
+        <% end %>
+      </ul>
+      </div>
+  <% end %>
+</div>

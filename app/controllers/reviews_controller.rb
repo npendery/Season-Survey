@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
     @review = item.reviews.build(review_params)
     @review.user = current_user
     if @review.save
+      ReviewMailer.new_review(@review).deliver_later
       flash[:accepted] = "Review added."
       redirect_to item_path(item)
     else

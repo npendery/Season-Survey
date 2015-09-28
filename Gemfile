@@ -7,8 +7,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'devise'
 gem 'foundation-rails'
+gem 'textacular', '~> 3.0'
+gem 'ransack'
 gem 'faker'
 gem 'as-duration'
+
 
 group :test do
   gem 'coveralls', require: false
@@ -22,6 +25,7 @@ group :development, :test do
   gem 'factory_girl'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem 'dotenv-rails'
 end
 
 group :development do

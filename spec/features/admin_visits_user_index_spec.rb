@@ -27,4 +27,21 @@ feature 'admin visits users index', %{
     sign_in(user)
     expect{visit users_path}.to raise_error(ActionController::RoutingError)
   end
+
+  scenario 'admin deletes user' do
+    user1 = FactoryGirl.create(:user, role: 'admin')
+    user2 = FactoryGirl.create(:user)
+
+    sign_in(user1)
+    visit users_path
+
+    expect(page).to have_content(user2.username)
+
+    click_on "Delete This User"
+
+    expect(page).to_not have_content(user2.username)
+  end
+
+  scenario 'admin makes another user an admin' do
+  end
 end

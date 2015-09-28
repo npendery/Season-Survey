@@ -1,8 +1,10 @@
 <div class="row">
   <% @users.each do |user| %>
-        <%= user.username%>
-        Delete This User
-        Make Admin
-        <br>
-  <% end %>
+    <ul>
+      <%= user.username%>
+      <li><%= link_to "Delete This User", users_path, method: :delete %></li>
+      <li><%= link_to "Make Admin", users_path, method: :update %></li>
+      <br>
+    <% end %>
+    </ul>
 </div>

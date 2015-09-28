@@ -15,73 +15,55 @@
  *= require foundation_and_overrides
 
  */
-.float_text a{
+ $white: #ffffff;
+
+.float_text a {
   position: relative;
   top: 10em;
   text-align: center;
   width: 60%;
-  color: white;
-  font: bold 24px/45px Helvetica, Sans-Serif;
-  letter-spacing: 6px;
   background: rgba(0, 0, 0, 0.6);
-  padding: 10px;
+  color: $white;
+  font: bold 24px/45px Helvetica, Sans-Serif;
   font-variant: small-caps;
+  letter-spacing: 6px;
+  padding: 10px;
 }
 
-.sit_image{
+.sit-image {
   position: static;
   width: 100%;
 }
 
-.right_text{
+.right-text {
   float: right;
 }
 
 .container {
   h1 {
-    color: white;
-    font: bold 24px/45px Helvetica, Sans-Serif;
-    letter-spacing: 6px;
     background: rgba(0, 0, 0, 0.6);
-    padding: 10px;
+    color: $white;
+    font: bold 24px/45px Helvetica, Sans-Serif;
     font-variant: small-caps;
+    letter-spacing: 6px;
+    padding: 10px;
   }
 }
 
-h4{
-  color: white;
-  font: bold 24px/45px Helvetica, Sans-Serif;
-  letter-spacing: 6px;
+h4 {
   background: rgba(0, 0, 0, 0.6);
-  padding: 10px;
+  color: $white;
+  font: bold 24px/45px Helvetica, Sans-Serif;
   font-variant: small-caps;
+  letter-spacing: 6px;
+  padding: 10px;
 }
 
-ul{
+ul {
   list-style-type: none;
   margin-left: 4px;
 }
 
-.small-font{
+.small-font {
   font-size: 10px;
 }
-
-// .season-title a{
-//   color: white;
-//   font-family: 'Tinos', serif;
-//   letter-spacing: 6px;
-//   margin-left: 20px;
-//   margin-top: 200px;
-//   font-variant: small-caps;
-// }
-
-// .season-text{
-//   padding-top: 100px;
-// }
-
-// .name{
-//   font-family: 'Merriweather;', serif;
-//   background: none;
-//   padding: 0px;
-//   font-variant: small-caps;
-// }

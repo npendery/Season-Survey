@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :authorize_user, only: [:edit, :create, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
   def index
     @category = Category.find(params[:category])
@@ -60,7 +60,8 @@ class ItemsController < ApplicationController
 
   protected
   def authorize_user
-    if !current_user.admin? || !(@item.user == current_user)
+    @item = Item.find(params[:id])
+    if !(current_user.admin? || @item.user == current_user)
       raise ActionController::RoutingError.new("Not Found")
     end
   end

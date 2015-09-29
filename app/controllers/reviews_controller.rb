@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :authorize_user, only: [:edit, :create, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
   def index
     @reviews = Review.all
@@ -50,7 +50,8 @@ class ReviewsController < ApplicationController
 
   protected
   def authorize_user
-    if !current_user.admin? || !(@review.user == current_user)
+    @review = Review.find(params[:id])
+    if !(current_user.admin? || @review.user == current_user)
       raise ActionController::RoutingError.new("Not Found")
     end
   end

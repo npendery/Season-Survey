@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :new, :create, :edit, :update, :destroy]
 
   resources :searches, only: [:index]
+
+  resources :users, only: [:index, :update, :destroy]
 end

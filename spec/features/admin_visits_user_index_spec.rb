@@ -59,7 +59,6 @@ feature 'admin visits users index', %{
     within (".member-list") do
       click_link "Make Admin"
     end
-      save_and_open_page
 
     within (".admin-list") do
       expect(page).to have_content(user1.username)

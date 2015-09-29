@@ -2,14 +2,26 @@ class UsersController < ApplicationController
   before_action :authorize_user
 
   def index
-    @users = User.all
+    @admins = []
+    @members = []
+    users = User.all
+    users.each do |user|
+      if user.admin?
+        @admins << user
+      else
+        @members << user
+      end
+    end
   end
 
   def update
     @user = User.find(params[:id])
-    @user.role = 'admin'
-    render users_path
-    flash[:notice] = "User Updated"
+    @user.role = "admin"
+    if @user.save
+      flash[:notice] = "User Updated"
+      # binding.pry
+    end
+    redirect_to users_path
   end
 
   def destroy

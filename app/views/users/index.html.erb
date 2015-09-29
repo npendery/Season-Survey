@@ -1,10 +1,18 @@
 <div class="row">
-  <% @users.each do |user| %>
-    <ul>
-      <%= user.username%>
+  <ul class="admin-list">
+    Administrators
+    <% @admins.each do |admin| %>
+      <li><%= admin.username%></li>
+    <% end %>
+  </ul>
+
+  <ul class="member-list">
+    Members
+    <% @members.each do |member| %>
+      <li><%= member.username%></li>
       <li><%= link_to "Delete This User", users_path, method: :delete %></li>
-      <li><%= link_to "Make Admin", users_path, method: :update %></li>
+      <li><%= link_to "Make Admin", user_path(member), method: :put %></li>
       <br>
     <% end %>
-    </ul>
+  </ul>
 </div>

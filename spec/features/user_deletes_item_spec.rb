@@ -6,7 +6,7 @@ feature 'user deletes item', %{
   So that other users cant see it anymore
 } do
 
-  scenario 'deletes item succcessfully' do
+  scenario 'member deletes their own item succcessfully' do
     category = FactoryGirl.create(:category)
     user = FactoryGirl.create(:user)
     item = FactoryGirl.create(:item, user: user, category: category)
@@ -22,7 +22,7 @@ feature 'user deletes item', %{
     expect(page).to have_content(category.name)
   end
 
-  scenario 'deletes item unsucccessfully' do
+  scenario 'member cannot delete another user\'s item' do
     category = FactoryGirl.create(:category)
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
@@ -34,5 +34,17 @@ feature 'user deletes item', %{
     click_on item.name
 
     expect(page).to_not have_content("Delete Item")
+  end
+
+  scenario 'admin can delete somebody else\' item' do
+    user1 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, role: 'admin')
+    review = FactoryGirl.create(:review, user: user1)
+
+    sign_in(user2)
+    visit item_path(review.item)
+    expect(page).to have_content("Delete Item")
+    click_on "Delete Item"
+    expect(page).to_not have_content(review.item.name)
   end
 end

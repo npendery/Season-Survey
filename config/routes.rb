@@ -10,7 +10,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create, :update, :edit, :destroy]
   end
 
-  resources :reviews, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :reviews, only: [:index, :new, :create, :edit, :update, :destroy] do
+    post 'upvote', to: 'votes#create_upvote'
+    post 'downvote', to: 'votes#create_downvote'
+  end
 
   resources :searches, only: [:index]
 

@@ -3,6 +3,8 @@ class Review < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :item
+  has_many :upvotes
+  has_many :downvotes
 
   validates :rating, presence: true
   validates :description, presence: true

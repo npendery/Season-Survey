@@ -27,7 +27,7 @@ feature 'admin visits users index', %{
   scenario 'member fails to visit users index' do
     user = FactoryGirl.create(:user)
     sign_in(user)
-    expect{visit users_path}.to raise_error(ActionController::RoutingError)
+    expect { visit users_path }.to raise_error(ActionController::RoutingError)
   end
 
   scenario 'admin deletes user' do

@@ -48,7 +48,44 @@ class ReviewsController < ApplicationController
     redirect_to item_path(@review.item)
   end
 
+  def upvote
+    @review = Review.find(params[:id])
+    vote = Vote.find(user: current_user, review: @review)
+    if vote
+      if vote.score == 1
+        vote.score = 0
+      elsif vote.score == 0
+        vote.score = 1
+      elsif vote.score == -1
+        vote.score = 0
+      end
+    else
+      Vote.create(user: current_user, review: @review, score: 1)
+    end
+    render json: vote.score
+    flash[:notice] = "Vote recorded."
+  end
+
+  def downvote
+    @review = Review.find(params[:id])
+    vote = Vote.find(user: current_user, review: @review)
+    if vote
+      if vote.score == 1
+        vote.score = 0
+      elsif vote.score == 0
+        vote.score = -1
+      elsif vote.score == -1
+        vote.score = 0
+      end
+    else
+      Vote.create(user: current_user, review: @review, score: -1)
+    end
+    render json: vote.score
+    flash[:notice] = "Vote recorded."
+  end
+
   protected
+
   def authorize_user
     @review = Review.find(params[:id])
     if !(current_user.admin? || @review.user == current_user)

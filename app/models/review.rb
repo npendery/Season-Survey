@@ -3,8 +3,7 @@ class Review < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :item
-  has_many :upvotes
-  has_many :downvotes
+  has_many :votes
 
   validates :rating, presence: true
   validates :description, presence: true
@@ -13,5 +12,13 @@ class Review < ActiveRecord::Base
 
   def self.search(search)
     where('description ILIKE ?', "%#{search}%")
+  end
+
+  def total_score(votes)
+    score = 0
+    votes.each do |vote|
+      score += vote.score
+    end
+    score
   end
 end

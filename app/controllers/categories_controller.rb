@@ -5,6 +5,6 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
-    @items = @category.items
+    @items = @category.items.order(created_at: :desc).page params[:page]
   end
 end

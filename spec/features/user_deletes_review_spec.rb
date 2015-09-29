@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-  feature 'user deletes review', %{
-    As a signed up user
-    I want to delete an existing review
-    So that other users cant see it anymore
-  } do
+feature 'user deletes review', %{
+  As a signed up user
+  I want to delete an existing review
+  So that other users cant see it anymore
+} do
 
   scenario 'member deletes own review' do
     review = FactoryGirl.create(:review)

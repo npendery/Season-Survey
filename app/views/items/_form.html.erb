@@ -16,7 +16,7 @@
 	<br>
 	<br>
 	<%= f.label :category_id %>
-	<%= f.collection_select(:category_id, Category.all, :id, :name) %>
+	<%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
 	<br>
 	<br>
 	<%= f.submit "Submit" %>

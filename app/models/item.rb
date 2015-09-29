@@ -11,6 +11,9 @@ class Item < ActiveRecord::Base
   validates :category, presence: true
   validates :user, presence: true
 
+  paginates_per 5
+  max_paginates_per 100
+
   def self.search(search)
     where('name ILIKE ?', "%#{search}%") |
       where('description ILIKE ?', "%#{search}%")

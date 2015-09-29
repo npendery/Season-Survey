@@ -1,15 +1,9 @@
 require 'faker'
 require "as-duration"
 
-Category.create(name: "food", image: "http://i.imgur.com/PZjSwig.jpg?1")
-Category.create(name: "fun", image: "http://i.imgur.com/N8TLfM3.jpg")
-Category.create(name: "fashion", image: "http://i.imgur.com/q3biltH.jpg")
-
-Item.create(name: "hot chocolate", image: "adkjf.png",
-            category_id: 1, description: "amazazing",
-            purchase_url: "www.dfjhs.com", user_id: 1)
-Item.create(name: "cold chocolate", image: "asdfdkjf.png",
-            category_id: 1, description: "not", user_id: 1)
+Category.create(name: "food", image: "http://i.imgur.com/VeqKQEa.jpg")
+Category.create(name: "fun", image: "http://i.imgur.com/6VyP8N6.jpg")
+Category.create(name: "fashion", image: "http://i.imgur.com/5BdS7Kt.jpg")
 
 200.times do
   Item.create(

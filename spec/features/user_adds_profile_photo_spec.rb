@@ -14,7 +14,6 @@ feature "user adds profile pic" do
     click_on "Update"
 
     expect(page).to have_content("Your account has been updated successfully.")
-    expect(page).to have_xpath
-    ("//img[@src=\"/uploads/user/profile_photo/#{user.id}/example_photo.jpg\"]")
+    expect(page).to have_css("img[src*='example_photo.jpg']")
   end
 end

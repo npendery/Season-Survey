@@ -24,7 +24,11 @@
         </li>
           <li><%= link_to 'Create Item', new_item_path %></li>
         <%- if current_user -%>
+
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to 'Profile', edit_user_registration_path %></li>
+          <li class="profile-photo"><%= link_to image_tag(current_user.profile_photo), edit_user_registration_path %></li>
+
         <%- else -%>
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>

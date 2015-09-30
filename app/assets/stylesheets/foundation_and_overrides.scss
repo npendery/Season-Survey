@@ -119,7 +119,9 @@ $font-family-serif: 'Merriweather', serif;
 
 // We use these as default colors throughout
 // $primary-color: #008CBA;
+$primary-color: #f04124;
 // $secondary-color: #e7e7e7;
+$secondary-color: #43AC6A;
 // $alert-color: #f04124;
 $alert-color: #87898d;
 // $success-color: #43AC6A;
@@ -127,7 +129,7 @@ $alert-color: #87898d;
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-// $body-bg: $white;
+$body-bg: #e7e7e7;
 // $body-font-color: $jet;
 // $body-font-family: $font-family-sans-serif;
 $body-font-family: $font-family-serif;
@@ -469,6 +471,7 @@ $body-font-family: $font-family-serif;
 // We use these to control button border styles.
 // $button-border-width: 0;
 // $button-border-style: solid;
+// $button-bg-color: $primary-color;
 // $button-bg-color: $primary-color;
 // $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
 // $button-border-color: $button-bg-hover;

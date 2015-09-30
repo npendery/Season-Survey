@@ -1,5 +1,5 @@
 <%= form_tag searches_path, :method => 'get' do %>
 <div class="large-8 small-9 columns">
-  <%= text_field_tag :search, params[:search], placeholder: "Search..." %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "search_bar_only" %>
 </div>
 <% end %>

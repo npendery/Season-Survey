@@ -40,13 +40,42 @@ $white: #ffffff;
 }
 
 .container {
+  margin: 30px;
+}
+
+.container {
   h1 {
     background: rgba(0, 0, 0, 0.6);
     color: $white;
     font: bold 24px/45px Helvetica, Sans-Serif;
     font-variant: small-caps;
     letter-spacing: 6px;
-    padding: 10px;
+    padding: 0px;
+    width: 250px;
+    text-align: center;
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+  }
+
+  .text_field {
+    padding: 5px;
+    height: 25px;
+    margin-bottom: 15px;
+  }
+
+  #item_category_id {
+    padding: 5px;
+    height: 25px;
+  }
+
+  #submit-form {
+    background: rgba(0, 0, 0, 0.6);
+    color: $white;
+    border-radius:15px;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    margin-top: 20px;
   }
 }
 

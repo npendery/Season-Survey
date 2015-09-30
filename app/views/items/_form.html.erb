@@ -1,9 +1,10 @@
+<<<<<<< HEAD
 <div class="container">
 	<%= form_for @item do |f| %>
 		<div class="row">
 			<div class="field columns small-3">
 				<%= f.label :name %>
-				<%= f.text_field :name %>
+				<%= f.text_field :name, class: "text-field" %>
 			</div>
 		</div>
 				<br>
@@ -11,15 +12,15 @@
 		<div class="row">
 			<div class="field columns small-6">
 				<%= f.label :description %>
-				<%= f.text_area :description %>
+				<%= f.text_area :description, class: "text-field" %>
 			</div>
 		</div>
 				<br>
 				<br>
 		<div class="row">
 			<div class="field columns small-6">
-				<%= f.label :purchase_url, "Where to Purchase" %>
-				<%= f.text_field :purchase_url %>
+				<%= f.label :purchase_url, "What is it?" %>
+				<%= f.text_field :purchase_url, class: "text-field" %>
 			</div>
 		</div>
 				<br>
@@ -27,7 +28,7 @@
 		<div class="row">
 			<div class="field columns small-6">
 				<%= f.label :image, 'Image URL' %>
-				<%= f.text_field :image %>
+				<%= f.text_field :image, class: "text-field" %>
 			</div>
 		</div>
 				<br>
@@ -35,13 +36,13 @@
 		<div class="row">
 			<div class="field columns small-2">
 				<%= f.label :category_id %>
-				<%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
+				<%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true, class: "item-category") %>
 			</div>
 		</div>
 				<br>
 				<br>
 		<div class="row">
-			<%= f.submit "Submit" %>
+			<%= f.submit "Submit", class: "submit-form" %>
 		</div>
 	<% end %>
 </div>

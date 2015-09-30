@@ -62,18 +62,18 @@ $white: #ffffff;
     margin-bottom: 15px;
   }
 
-  #item_category_id {
+  select {
     height: 25px;
     padding: 5px;
   }
 
-  #submit-form {
+  .submit-form {
     background: rgba(0, 0, 0, 0.6);
-    -moz-border-radius:15px;
-    -webkit-border-radius:15px;
-    border-radius:15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
     color: $white;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 }
 

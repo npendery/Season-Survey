@@ -33,7 +33,7 @@ feature 'user deletes item', %{
 
     click_on item.name
 
-    expect(page).to_not have_content("Delete Item")
+    expect(page).to_not have_content("Delete")
   end
 
   scenario 'admin can delete somebody else\' item' do

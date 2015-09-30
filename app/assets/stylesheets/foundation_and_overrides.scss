@@ -119,7 +119,7 @@ $font-family-serif: 'Merriweather', serif;
 
 // We use these as default colors throughout
 // $primary-color: #008CBA;
-// $secondary-color: #e7e7e7;
+$secondary-color: #f04124;
 // $alert-color: #f04124;
 $alert-color: #87898d;
 // $success-color: #43AC6A;
@@ -1407,6 +1407,7 @@ $body-font-family: $font-family-serif;
 
 // Background color for the top bar
 // $topbar-bg-color: $oil;
+$topbar-bg-color: $secondary-color;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin

@@ -17,6 +17,7 @@
  */
 $white: #ffffff;
 $black: #000000;
+$search-result: #008CBA;
 
 .hidden-text a {
   color: transparent;
@@ -117,4 +118,10 @@ body {
 
 .hidden-button {
   display: none;
+}
+
+.blue-text {
+  color: $search-result;
+  display: inline-block;
+  font-style: oblique;
 }

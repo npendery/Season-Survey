@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     @item.user = @user
 
     if @item.save
-      flash[:accepted] = "Item added."
+      flash[:accepted] = "Item Added!"
       redirect_to item_path(@item)
     else
       flash[:errors] = @item.errors.full_messages.join(". ")

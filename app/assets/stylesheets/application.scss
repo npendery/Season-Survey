@@ -74,3 +74,13 @@ ul {
   margin-right: 5px;
   width: 50px;
 }
+
+#search {
+  width:200px;
+  background-color:#333333;
+  border-color: $white;
+  color: $white;
+  border-radius:15px;
+  -moz-border-radius:15px;
+  -webkit-border-radius:15px;
+}

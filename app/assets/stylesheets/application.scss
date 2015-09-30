@@ -76,11 +76,11 @@ ul {
 }
 
 #search {
-  width:200px;
-  background-color:#333333;
+  background-color: rgba(60, 59, 59, 0.3);
   border-color: $white;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
   color: $white;
-  border-radius:15px;
-  -moz-border-radius:15px;
-  -webkit-border-radius:15px;
+  width: 200px;
 }

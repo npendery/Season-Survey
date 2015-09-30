@@ -36,21 +36,24 @@
           <li>Rating: <%= review.rating %></li>
           <li><%= review.description %></li>
 
-          <li class="total-score small-font"><%= "User Approval: #{review.total_score(review.votes)}" %></li>
-
           <% if current_user %>
             <% if current_user.admin? || (@user == review.user) %>
               <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
               <%= link_to "Delete", review_path(review), method: :delete %></li>
             <% end %>
-            <li class="upvote small-font"><%= link_to "Upvote", review_upvote_path(review), remote: true, method: :put %></li>
-            <li class="downvote small-font"><%= link_to "Downvote", review_downvote_path(review), remote: true,
-            method: :put %></li>
+            <div id="vote-div">
+            <%= link_to "upvote", upvote_review_votes_path(review), class: 'upvote' %>
+              <div class= 'vote-total'>
+                <%= @vote_total %>
+              </div>
+            <%= link_to "downvote", downvote_review_votes_path(review), class: 'downvote' %>
+          </div>
+
           <% end %>
           <br>
 
         <% end %>
       </ul>
-      </div>
+    </div>
   <% end %>
 </div>

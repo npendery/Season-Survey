@@ -1,12 +1,12 @@
 <%= form_for @item do |f| %>
 	<%= f.label :name %>
-	<%= f.text_field :name, class: "text_field" %>
+	<%= f.text_field :name, class: "text-field" %>
 	<%= f.label :description %>
-	<%= f.text_field :description, class: "text_field" %>
+	<%= f.text_field :description, class: "text-field" %>
 	<%= f.label :purchase_url, "Where is it?" %>
-	<%= f.text_field :purchase_url, class: "text_field" %>
+	<%= f.text_field :purchase_url, class: "text-field" %>
 	<%= f.label :image, 'Image URL' %>
-	<%= f.text_field :image, class: "text_field" %>
+	<%= f.text_field :image, class: "text-field" %>
 	<%= f.label :category_id %>
 	<%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
 	<br>

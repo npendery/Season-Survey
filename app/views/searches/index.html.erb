@@ -8,13 +8,13 @@
         <% else %>
           <% if @search_results_item.present? %>
             <% @search_results_item.each do |result| %>
-            <p>Showing Item Results for "<%= result.name %>"</p>
+            <p>Showing Item Results for "<%= params[:search] %>"</p>
               <li><%= link_to result.name, item_path(result) %></li>
             <% end %>
           <% end %>
           <% if @search_results_review.present? %>
             <% @search_results_review.each do |result| %>
-            <p>Showing Review Results for "<%= result.name %>"</p>
+            <p>Showing Review Results for "<%= params[:search] %>"</p>
                 <li><%= link_to result.item.name, item_path(result.item) %></li>
             <% end %>
           <% end %>

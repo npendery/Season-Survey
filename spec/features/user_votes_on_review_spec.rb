@@ -20,7 +20,7 @@ feature 'user votes review on item show page', %{
     sign_in(user)
 
     visit item_path(item)
-
+    expect(page).to have_content(review.description)
     expect(page).to have_content("Votes: 0")
 
     click_on "upvote"
@@ -36,7 +36,7 @@ feature 'user votes review on item show page', %{
     sign_in(user)
 
     visit item_path(item)
-
+    expect(page).to have_content(review.description)
     expect(page).to have_content("Votes: 0")
 
     click_on "downvote"
@@ -52,7 +52,7 @@ feature 'user votes review on item show page', %{
     sign_in(user)
 
     visit item_path(item)
-
+    expect(page).to have_content(review.description)
     expect(page).to have_content("Votes: 0")
 
     click_on "downvote"
@@ -72,7 +72,7 @@ feature 'user votes review on item show page', %{
     sign_in(user)
 
     visit item_path(item)
-
+    expect(page).to have_content(review.description)
     expect(page).to have_content("Votes: 0")
 
     click_on "downvote"
@@ -93,6 +93,7 @@ feature 'user votes review on item show page', %{
 
     sign_in(user1)
     visit item_path(item)
+    expect(page).to have_content(review.description)
     expect(page).to have_content("Votes: 0")
     click_on "downvote"
     expect(page).to have_content("Votes: -1")

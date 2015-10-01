@@ -11,13 +11,13 @@ Rails.application.routes.draw do
   end
 
   resources :reviews do
-      resources :votes, only: [] do
-        collection do
-          post 'upvote'
-          post 'downvote'
-        end
+    resources :votes, only: [] do
+      collection do
+        post 'upvote'
+        post 'downvote'
       end
     end
+  end
 
   resources :searches, only: [:index]
 

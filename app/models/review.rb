@@ -14,10 +14,10 @@ class Review < ActiveRecord::Base
     where('description ILIKE ?', "%#{search}%")
   end
 
-  def total_score(votes)
+  def total_score
     score = 0
-    votes.each do |vote|
-      score += vote.score
+    votes.each do |a|
+      score += a.vote
     end
     score
   end

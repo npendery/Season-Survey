@@ -31,29 +31,26 @@
   <% if @item.reviews.present? %>
     <h4> Talk </h4>
       <div>
-        <ul>
         <% @item.reviews.each do |review| %>
-          <li>Rating: <%= review.rating %></li>
-          <li><%= review.description %></li>
-
-          <% if current_user %>
-            <% if current_user.admin? || (@user == review.user) %>
-              <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
-              <%= link_to "Delete", review_path(review), method: :delete %></li>
+          <ul>
+            <li>Rating: <%= review.rating %></li>
+            <li><%= review.description %></li>
+            <% if current_user %>
+              <% if current_user.admin? || (current_user == review.user) %>
+                <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
+                <%= link_to "Delete", review_path(review), method: :delete %></li>
+              <% end %>
+              <span id="vote-div">
+                <div>
+                  Votes: <span class= 'vote-total'><%= review.total_score %></span>
+                </div>
+              <%= link_to "upvote", upvote_review_votes_path(review), class: 'upvote' %>
+              <%= link_to "downvote", downvote_review_votes_path(review), class: 'downvote' %>
+            </span>
             <% end %>
-            <div id="vote-div">
-            <%= link_to "upvote", upvote_review_votes_path(review), class: 'upvote' %>
-              <div class= 'vote-total'>
-                <%= @vote_total %>
-              </div>
-            <%= link_to "downvote", downvote_review_votes_path(review), class: 'downvote' %>
-          </div>
-
-          <% end %>
-          <br>
-
+            <br>
+          </ul>
         <% end %>
-      </ul>
-    </div>
+      </div>
   <% end %>
 </div>

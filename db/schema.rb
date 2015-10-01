@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929144013) do
+ActiveRecord::Schema.define(version: 20150930194648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150929144013) do
     t.string   "description",  null: false
     t.string   "purchase_url"
     t.integer  "category_id"
-    t.integer  "user_id",      null: false
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,5 +63,13 @@ ActiveRecord::Schema.define(version: 20150929144013) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id",               null: false
+    t.integer "review_id",             null: false
+    t.integer "vote",      default: 0, null: false
+  end
+
+  add_index "votes", ["user_id", "review_id"], name: "index_votes_on_user_id_and_review_id", unique: true, using: :btree
 
 end

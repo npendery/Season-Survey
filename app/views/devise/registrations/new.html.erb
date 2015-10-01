@@ -13,7 +13,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :profile_photo, "Profile Photo" %>
+    <%= f.label :username %><br />
+    <%= f.text_field :username, value: Faker::Internet.user_name.capitalize + Faker::Number.number(5), autofocus: true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile_photo, "Profile Photo" %><br />
     <%= f.file_field :profile_photo %>
   </div>
 

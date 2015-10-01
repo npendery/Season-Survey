@@ -49,6 +49,7 @@ class ReviewsController < ApplicationController
   end
 
   protected
+
   def authorize_user
     @review = Review.find(params[:id])
     if !(current_user.admin? || @review.user == current_user)

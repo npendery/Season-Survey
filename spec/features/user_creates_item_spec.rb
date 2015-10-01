@@ -19,7 +19,7 @@ feature 'user creates item', %{
 
     fill_in "Name", with: "Fuzzy wuzzy snuffaluffagus"
     fill_in "Description", with: "It's big, and hairy"
-    fill_in "Where is it?", with: "The zoo on Sesame St."
+    fill_in "Where can you Purchase it?", with: "The zoo on Sesame St."
     fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
     select "Fashion", from: "Category"
 
@@ -38,7 +38,7 @@ feature 'user creates item', %{
 
     fill_in "Name", with: ""
     fill_in "Description", with: "It's big, and hairy"
-    fill_in "Where is it?", with: "The zoo on Sesame St."
+    fill_in "Where can you Purchase it?", with: "The zoo on Sesame St."
     fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
     select "Fashion", from: 'Category'
 
@@ -55,7 +55,7 @@ feature 'user creates item', %{
 
     fill_in "Name", with: "Fuzzy wuzzy snuffaluffagus"
     fill_in "Description", with: ""
-    fill_in "Where is it?", with: "The zoo on Sesame St."
+    fill_in "Where can you Purchase it?", with: "The zoo on Sesame St."
     fill_in "Image URL", with: "http://www.imgur.com/d383ncZ"
     select "Fashion", from: 'Category'
 

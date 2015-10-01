@@ -1,13 +1,13 @@
 <p>
-  <div class="text-center category-header"><%= @category.name.capitalize %></div>
+  <h4 class="text-center category-header"><%= @category.name.capitalize %></h4>
 </p>
+<div class="text-center">
+  <%= link_to 'Add New Item', new_category_item_path(@category) %>
+  <hr>
+</div>
 
 <p>
   <%- if !@category.items.empty? -%>
     <%= render 'items/index', object: @items %>
   <%- end -%>
 </p>
-
-<%= link_to 'Add New Item', new_category_item_path(@category) %> |
-
-<%= link_to 'Back', root_path %>

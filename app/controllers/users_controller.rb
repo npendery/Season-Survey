@@ -11,7 +11,6 @@ class UsersController < ApplicationController
     @user.role = "admin"
     if @user.save
       flash[:notice] = "User Updated"
-      # binding.pry
     end
     redirect_to users_path
   end

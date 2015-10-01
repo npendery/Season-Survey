@@ -6,7 +6,7 @@
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, class: "text-field" %>
     <% if resource.errors[:email].present? %>
-      <%= content_tag :span, :class => 'error-explanation' do %>
+      <%= content_tag :span, class: 'error-explanation' do %>
         <%= "Email " + resource.errors[:email].join(", ") %>
       <% end %>
     <% end %>
@@ -29,7 +29,7 @@
     <% end %>
     <%= f.password_field :password, autocomplete: "off", class: "text-field" %>
     <% if resource.errors[:password].present? %>
-      <%= content_tag :span, :class => 'error-explanation' do %>
+      <%= content_tag :span, class: 'error-explanation' do %>
         <%= "Password " + resource.errors[:password].join(", ") %>
       <% end %>
     <% end %>
@@ -39,7 +39,7 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off", class: "text-field" %>
     <% if resource.errors[:password_confirmation].present? %>
-      <%= content_tag :span, :class => 'error-explanation' do %>
+      <%= content_tag :span, class: 'error-explanation' do %>
         <%= "Password Confirmation " + resource.errors[:password_confirmation].join(", ") %>
       <% end %>
     <% end %>

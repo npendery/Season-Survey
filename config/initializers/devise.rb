@@ -260,11 +260,3 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 end
-
-def errors_for(model, attribute)
-  if model.errors[attribute].present?
-    content_tag :span, :class => 'error_explanation' do
-      model.errors[attribute].join(", ")
-    end
-  end
-end

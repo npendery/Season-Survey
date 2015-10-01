@@ -60,10 +60,10 @@ $search-result: #008cba;
   }
 
   .error-explanation {
-    padding-bottom: 15px;
+    color: #ff0000;
     font-size: 10px;
     font-style: italic;
-    color: red;
+    padding-bottom: 15px;
   }
 
   select {
@@ -139,6 +139,7 @@ body {
 
 .field {
   padding-bottom: 0;
+
   em {
     font-size: 8px;
   }

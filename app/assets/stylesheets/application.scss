@@ -17,6 +17,7 @@
  */
 $white: #ffffff;
 $black: #000000;
+$red: #ff0000
 $search-result: #008cba;
 
 .hidden-text a {
@@ -60,7 +61,7 @@ $search-result: #008cba;
   }
 
   .error-explanation {
-    color: #ff0000;
+    color: $red;
     font-size: 10px;
     font-style: italic;
     padding-bottom: 15px;

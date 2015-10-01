@@ -1,22 +1,9 @@
-class VotesController < ApplicationController
+class DownvotesController < ApplicationController
   before_action :pre_vote
 
-  def upvote
-    if @value.vote == 1
-      @value.vote -= 1
-    else
-      @value.vote = 1
-    end
-    respond_to do |format|
-      @value.save
-      @vote_total = @review.votes.sum(:vote)
-      format.json { render json: @vote_total }
-    end
-  end
-
-  def downvote
+  def create
     if @value.vote == -1
-      @value.vote += 1
+      @value.vote = 0
     else
       @value.vote = -1
     end

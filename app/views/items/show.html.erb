@@ -45,8 +45,8 @@
                 <div>
                   Votes: <span class= 'vote-total'><%= review.total_score %></span>
                 </div>
-              <%= link_to "upvote", upvote_review_votes_path(review), class: 'upvote' %>
-              <%= link_to "downvote", downvote_review_votes_path(review), class: 'downvote' %>
+              <%= link_to "upvote", review_upvotes_path(review), class: 'upvote' %>
+              <%= link_to "downvote", review_downvotes_path(review), class: 'downvote' %>
             </span>
             <% end %>
             <br>

@@ -11,12 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :reviews do
-    resources :votes, only: [] do
-      collection do
-        post 'upvote'
-        post 'downvote'
-      end
-    end
+    resources :upvotes, only: [:create]
+    resources :downvotes, only: [:create]
   end
 
   resources :searches, only: [:index]

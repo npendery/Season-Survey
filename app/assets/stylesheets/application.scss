@@ -56,7 +56,14 @@ $search-result: #008cba;
   .text-field {
     padding: 5px;
     height: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 1px;
+  }
+
+  .error-explanation {
+    padding-bottom: 15px;
+    font-size: 10px;
+    font-style: italic;
+    color: red;
   }
 
   select {
@@ -124,4 +131,15 @@ body {
   color: $search-result;
   display: inline-block;
   font-style: oblique;
+}
+
+.shared-links {
+  margin-top: 20px;
+}
+
+.field {
+  padding-bottom: 0;
+  em {
+    font-size: 8px;
+  }
 }

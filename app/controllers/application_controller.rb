@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :profile_photo
     devise_parameter_sanitizer.for(:sign_up) << :profile_photo
   end
+
+  def errors_for(model, attribute)
+    if model.errors[attribute].present?
+      content_tag :span, :class => 'error_explanation' do
+        model.errors[attribute].join(", ")
+      end
+    end
+  end
 end

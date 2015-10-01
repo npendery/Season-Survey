@@ -16,7 +16,7 @@ feature 'user updates item', %{
 
     click_on item.name
 
-    click_on 'Update Item'
+    click_on 'Edit Item'
 
     fill_in "Name", with: "Super boots"
 
@@ -36,7 +36,7 @@ feature 'user updates item', %{
 
     click_on item.name
 
-    click_on 'Update Item'
+    click_on 'Edit Item'
 
     fill_in "Name", with: ""
 

@@ -1,23 +1,40 @@
-<%= form_for @item do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<br>
-	<br>
-	<%= f.label :description %>
-	<%= f.text_field :description %>
-	<br>
-	<br>
-	<%= f.label :purchase_url, "Where to Purchase" %>
-	<%= f.text_field :purchase_url %>
-	<br>
-	<br>
-	<%= f.label :image, 'Image URL' %>
-	<%= f.text_field :image %>
-	<br>
-	<br>
-	<%= f.label :category_id %>
-	<%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
-	<br>
-	<br>
-	<%= f.submit "Submit" %>
-<% end %>
+<div class="container">
+	<%= form_for @item do |f| %>
+		<div class="row">
+			<div class="field columns small-3">
+				<%= f.label :name, 'Item Name' %>
+				<%= f.text_field :name, class: "text-field" %>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="field columns small-6">
+				<%= f.label :description %>
+				<%= f.text_area :description, class: "text-field" %>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="field columns small-6">
+				<%= f.label :purchase_url, "Where can you Purchase it?" %>
+				<%= f.text_field :purchase_url, class: "text-field" %>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="field columns small-6">
+				<%= f.label :image, 'Image URL' %>
+				<%= f.text_field :image, class: "text-field" %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="field columns small-2">
+				<%= f.label :category_id %>
+				<%= f.collection_select(:category_id, Category.all, :id, :name_for_select, prompt: true, class: "item-category") %>
+			</div>
+		</div>
+		<div class="row">
+			<%= f.submit "Submit", class: "submit-form" %>
+		</div>
+	<% end %>
+</div>

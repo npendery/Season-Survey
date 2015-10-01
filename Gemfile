@@ -12,6 +12,8 @@ gem 'ransack'
 gem 'faker'
 gem 'as-duration'
 gem 'kaminari'
+gem 'carrierwave'
+gem 'fog'
 
 group :test do
   gem 'coveralls', require: false

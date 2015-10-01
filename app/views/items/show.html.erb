@@ -13,10 +13,11 @@
   </div>
 
   <div class="right_text columns small-4 end">
+    <br>
     <ul>
       <% if current_user %>
         <% if current_user.admin? || (@item.user == current_user) %>
-          <li><%= link_to "Update Item", edit_item_path(@item) %></li>
+          <li><%= link_to "Edit Item", edit_item_path(@item) %></li>
           <li><%= link_to "Delete Item", item_path(@item), method: :delete %></li>
         <% end %>
       <% end %>
@@ -53,4 +54,7 @@
         <% end %>
       </div>
   <% end %>
+</div>
+<div class="text-center">
+	<%= link_to "Home", root_path %>
 </div>

@@ -32,7 +32,7 @@ class ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      flash[:notice] = 'Review updated.'
+      flash[:notice] = 'Review Updated'
       redirect_to item_path(@review.item)
     else
       flash[:notice] = @review.errors.full_messages.join(". ")

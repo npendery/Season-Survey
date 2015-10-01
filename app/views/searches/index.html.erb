@@ -1,20 +1,27 @@
 <h3>Search Results</h3>
-
-<ul>
-  <% if @search_results_item.empty? && @search_results_review.empty? %>
-    <p>No Results</p>
-  <% else %>
-    <% if @search_results_item.present? %>
-      <p>Item Results</p>
-      <% @search_results_item.each do |result| %>
-        <li><%= link_to result.name, item_path(result) %></li>
-      <% end %>
-    <% end %>
-    <% if @search_results_review.present? %>
-      <p>Review Results</p>
-      <% @search_results_review.each do |result| %>
-          <li><%= link_to result.item.name, item_path(result.item) %></li>
-      <% end %>
-    <% end %>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="field columns small-3">
+      <ul>
+        <% if params[:search].empty? || @search_results_item.empty? && @search_results_review.empty?%>
+          <p>No Results</p>
+        <% else %>
+          <li>Showing Results for <div class="blue-text"><%= params[:search]%></div></li>
+          <% if @search_results_item.present? %>
+            <p>Item Results</p>
+            <% @search_results_item.each do |result| %>
+              <li><%= link_to result.name, item_path(result) %></li>
+            <% end %>
+          <% end %>
+          <% if @search_results_review.present? %>
+            <HR WIDTH="90%">
+            <p>Review Results</p>
+            <% @search_results_review.each do |result| %>
+                <li><%= link_to result.item.name, item_path(result.item) %></li>
+            <% end %>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

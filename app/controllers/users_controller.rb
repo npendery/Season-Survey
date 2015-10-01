@@ -2,16 +2,8 @@ class UsersController < ApplicationController
   before_action :authorize_user
 
   def index
-    @admins = []
-    @members = []
-    users = User.all
-    users.each do |user|
-      if user.admin?
-        @admins << user
-      else
-        @members << user
-      end
-    end
+    @admins = User.where(role: "admin")
+    @members = User.where(role: "member")
   end
 
   def update

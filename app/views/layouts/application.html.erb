@@ -10,8 +10,8 @@
 
   <nav class="top-bar">
     <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">SeasonSurvey</a></h1>
+      <li class="name logo">
+        <h1><a href="/"><img src="http://i.imgur.com/0dJ4SVV.png"></a></h1>
       </li>
     </ul>
 
@@ -23,7 +23,11 @@
           </div>
         </li>
           <li><%= link_to 'Create Item', new_item_path %></li>
+
         <%- if current_user -%>
+          <%- if current_user.role == "admin" -%>
+            <li><%= link_to 'Admin', user_registration_path %></li>
+          <% end %>
 
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           <li><%= link_to 'Profile', edit_user_registration_path %></li>
@@ -33,6 +37,8 @@
           <li><%= link_to 'Sign Up', new_user_registration_path %></li>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
         <%- end -%>
+
+
       </ul>
     </section>
   </nav>

@@ -3,6 +3,7 @@
     Administrators
     <% @admins.each do |admin| %>
       <li><%= admin.username%></li>
+      <li><%= admin.email%></li>
     <% end %>
   </ul>
 
@@ -10,6 +11,7 @@
     Members
     <% @members.each do |member| %>
       <li><%= member.username%></li>
+      <li><%= member.email%></li>
       <li><%= link_to "Delete This User", users_path, method: :delete %></li>
       <li><%= link_to "Make Admin", user_path(member), method: :put %></li>
       <br>

@@ -11,14 +11,14 @@
       <% end %>
     <% end %>
   </div>
-
+  <br>
   <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, value: Faker::Internet.user_name.capitalize + Faker::Number.number(5), autofocus: true  %>
+    <%= f.label :username %>
+    <%= f.text_field :username, value: Faker::Internet.user_name.capitalize + Faker::Number.number(5), autofocus: true, class: "text-field"  %>
   </div>
-
+  <br>
   <div class="field">
-    <%= f.label :profile_photo, "Profile Photo" %><br />
+    <%= f.label :profile_photo, "Profile Photo" %>
     <%= f.file_field :profile_photo %>
   </div>
 
@@ -34,7 +34,7 @@
       <% end %>
     <% end %>
   </div>
-
+  <br>
   <div class="field">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off", class: "text-field" %>

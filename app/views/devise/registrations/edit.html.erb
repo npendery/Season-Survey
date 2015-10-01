@@ -9,6 +9,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, value: current_user.username , autofocus: true  %>
+  </div>
+
+  <div class="field">
     <%= f.label :profile_photo, "Profile Photo" %><br />
     <%= f.file_field :profile_photo %>
   </div>

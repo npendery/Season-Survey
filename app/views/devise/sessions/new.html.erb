@@ -1,14 +1,25 @@
-<h2>Log in</h2>
+<h2>Sign in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, class: "text-field" %>
+    <% if resource.errors[:email].present? %>
+      <%= content_tag :span, class: 'error-explanation' do %>
+        <%= "Email " + resource.errors[:email].join(", ") %>
+      <% end %>
+    <% end %>
   </div>
-
+  <br>
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.label :password %>
+    <%= f.password_field :password, autocomplete: "off", class: "text-field" %>
+    <% if resource.errors[:password].present? %>
+      <%= content_tag :span, class: 'error-explanation' do %>
+        <%= "Password " + resource.errors[:password].join(", ") %>
+      <% end %>
+    <% end %>
+
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -19,8 +30,10 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Sign in", class: "submit-form"  %>
   </div>
 <% end %>
 
+<div class="shared-links">
 <%= render "devise/shared/links" %>
+</div>

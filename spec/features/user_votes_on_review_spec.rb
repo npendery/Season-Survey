@@ -23,7 +23,7 @@ feature 'user votes review on item show page', %{
     expect(page).to have_content(review.description)
     expect(page).to have_content("Votes: 0")
 
-    find("img[alt='Pdjs3zv']").click
+    find("img[alt='Pmgcu9s']").click
 
     expect(page).to have_content("Votes: 1")
   end
@@ -39,7 +39,7 @@ feature 'user votes review on item show page', %{
     expect(page).to have_content(review.description)
     expect(page).to have_content("Votes: 0")
 
-    find("img[alt='Eqld2']").click
+    find("img[alt='Vrep02z']").click
 
     expect(page).to have_content("Votes: -1")
   end
@@ -55,11 +55,11 @@ feature 'user votes review on item show page', %{
     expect(page).to have_content(review.description)
     expect(page).to have_content("Votes: 0")
 
-    find("img[alt='Eqld2']").click
+    find("img[alt='Vrep02z']").click
 
     expect(page).to have_content("Votes: -1")
 
-    find("img[alt='Eqld2']").click
+    find("img[alt='Vrep02z']").click
 
     expect(page).to have_content("Votes: 0")
   end
@@ -75,11 +75,11 @@ feature 'user votes review on item show page', %{
     expect(page).to have_content(review.description)
     expect(page).to have_content("Votes: 0")
 
-    find("img[alt='Eqld2']").click
+    find("img[alt='Vrep02z']").click
 
     expect(page).to have_content("Votes: -1")
 
-    find("img[alt='Pdjs3zv']").click
+    find("img[alt='Pmgcu9s']").click
 
     expect(page).to have_content("Votes: 1")
   end
@@ -95,7 +95,7 @@ feature 'user votes review on item show page', %{
     visit item_path(item)
     expect(page).to have_content(review.description)
     expect(page).to have_content("Votes: 0")
-    find("img[alt='Eqld2']").click
+    find("img[alt='Vrep02z']").click
     expect(page).to have_content("Votes: -1")
 
     click_on "Sign Out"
@@ -103,7 +103,7 @@ feature 'user votes review on item show page', %{
     sign_in(user2)
     visit item_path(item)
     expect(page).to have_content("Votes: -1")
-    find("img[alt='Eqld2']").click
+    find("img[alt='Vrep02z']").click
     expect(page).to have_content("Votes: -2")
   end
 end

@@ -22,4 +22,8 @@ class Item < ActiveRecord::Base
   def votes_order
     reviews.sort_by { |review| review.total_score }.reverse!
   end
+
+  def admin?
+    role == "admin"
+  end
 end

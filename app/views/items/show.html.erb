@@ -36,9 +36,11 @@
                     <div class="columns small-6">
                       <li><%= review.description.capitalize %></li>
                       <li>Rating: <%= review.rating %></li>
-                        <% if current_user.admin? || (@user == review.user) %>
-                          <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
-                          <%= link_to "Delete", review_path(review), method: :delete %></li>
+                        <% if current_user %>
+                          <% if @user.admin? || (@user == review.user) %>
+                            <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
+                            <%= link_to "Delete", review_path(review), method: :delete %></li>
+                          <% end %>
                         <% end %>
                     </div>
                     <div class="columns small-6 right">

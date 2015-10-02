@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @reviews = @item.reviews
+    @reviews = @item.votes_order
     @user = current_user
   end
 

@@ -1,52 +1,73 @@
-<h2>Sign up</h2>
-
+<div class="text-center category-header">
+  <h4>Sign up</h4>
+</div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, class: "text-field" %>
-    <% if resource.errors[:email].present? %>
-      <%= content_tag :span, class: 'error-explanation' do %>
-        <%= "Email " + resource.errors[:email].join(", ") %>
+<div class="row">
+  <div class="columns small-4">
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true, class: "text-field" %>
+      <% if resource.errors[:email].present? %>
+        <%= content_tag :span, class: 'error-explanation' do %>
+          <%= "Email " + resource.errors[:email].join(", ") %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-  <br>
-  <div class="field">
-    <%= f.label :username %>
-    <%= f.text_field :username, value: Faker::Internet.user_name.capitalize + Faker::Number.number(5), autofocus: true, class: "text-field"  %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :profile_photo, "Profile Photo" %>
-    <%= f.file_field :profile_photo %>
+</div>
+
+  <div class="row">
+    <div class="columns small-4">
+      <div class="field">
+        <%= f.label :username %><br />
+        <%= f.text_field :username, value: Faker::Internet.user_name.capitalize + Faker::Number.number(5), autofocus: true  %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "off", class: "text-field" %>
-    <% if resource.errors[:password].present? %>
-      <%= content_tag :span, class: 'error-explanation' do %>
-        <%= "Password " + resource.errors[:password].join(", ") %>
-      <% end %>
-    <% end %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off", class: "text-field" %>
-    <% if resource.errors[:password_confirmation].present? %>
-      <%= content_tag :span, class: 'error-explanation' do %>
-        <%= "Password Confirmation " + resource.errors[:password_confirmation].join(", ") %>
-      <% end %>
-    <% end %>
+  <div class="row">
+    <div class="field">
+      <%= f.label :profile_photo, "Profile Photo" %><br />
+      <%= f.file_field :profile_photo %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up", class: "submit-form" %>
+  <div class="row">
+    <div class="columns small-4">
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off", class: "text-field" %>
+        <% if resource.errors[:password].present? %>
+          <%= content_tag :span, class: 'error-explanation' do %>
+            <%= "Password " + resource.errors[:password].join(", ") %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns small-4">
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "text-field" %>
+        <% if resource.errors[:password_confirmation].present? %>
+          <%= content_tag :span, class: 'error-explanation' do %>
+            <%= "Password Confirmation " + resource.errors[:password_confirmation].join(", ") %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="actions">
+      <%= f.submit "Sign up", class: "submit-form" %>
+    </div>
   </div>
 <% end %>
 

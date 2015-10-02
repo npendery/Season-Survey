@@ -1,57 +1,57 @@
+<div class="text-center category-header">
+  <h4><%= @item.name %></h4>
+</div>
 <div class="row">
-  <h1 class="float-text"><%= @item.name %> </h1>
   <div class="columns small-8">
-
       <br>
     <div><img src=<%= @item.image %>></div>
     <br>
     <% if @item.description.present? %>
-        <div>
-          <%= @item.description %>
+        <div class="text-center">
+          <%= @item.description.capitalize %>
         </div>
     <% end %>
+    <ul>
+      <% if current_user %>
+        <% if current_user.admin? || (@item.user == current_user) %>
+          <li class="text-center"><%= link_to "Edit Item", edit_item_path(@item) %> |
+              <%= link_to "Delete Item", item_path(@item), method: :delete %></li>
+        <% end %>
+      <% end %>
+      <br>
+    </ul>
   </div>
 
   <div class="right_text columns small-4 end right-nav">
     <br>
-    <ul>
-      <% if current_user %>
-        <% if current_user.admin? || (@item.user == current_user) %>
-          <li><%= link_to "Edit Item", edit_item_path(@item) %></li>
-          <li><%= link_to "Delete Item", item_path(@item), method: :delete %></li>
-        <% end %>
-      <% end %>
-      <br>
-      <li><%= link_to "Add Review", new_item_review_path(@item) %></li>
-      <li><%= link_to "Back", category_path(@item.category) %></li>
-    </ul>
-  </div>
-</div>
+      <h4> Talk </h4>
+      <p><%= link_to "Add Review", new_item_review_path(@item) %></p>
+    <% if @item.reviews.present? %>
 
-<div class="row">
-  <% if @item.reviews.present? %>
-    <h4> Talk </h4>
-      <div>
-        <% @item.reviews.each do |review| %>
+        <div>
           <ul>
+          <% @item.reviews.each do |review| %>
             <li>Rating: <%= review.rating %></li>
             <li><%= review.description %></li>
+
             <% if current_user %>
-              <% if current_user.admin? || (current_user == review.user) %>
+              <% if current_user.admin? || (@user == review.user) %>
                 <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
                 <%= link_to "Delete", review_path(review), method: :delete %></li>
               <% end %>
-              <span id="vote-div">
-                <div>
-                  Votes: <span class= 'vote-total'><%= review.total_score %></span>
-                </div>
-              <%= link_to "upvote", review_upvotes_path(review), class: 'upvote' %>
-              <%= link_to "downvote", review_downvotes_path(review), class: 'downvote' %>
-            </span>
+                <span id="vote-div">
+                  <div>
+                    Votes: <span class= 'vote-total'><%= review.total_score %></span>
+                  </div>
+                <%= link_to "upvote", review_upvotes_path(review), class: 'upvote' %>
+                <%= link_to "downvote", review_downvotes_path(review), class: 'downvote' %>
+              </span>
             <% end %>
             <br>
-          </ul>
-        <% end %>
-      </div>
-  <% end %>
+
+          <% end %>
+        </ul>
+        </div>
+    <% end %>
+  </div>
 </div>

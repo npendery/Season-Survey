@@ -15,12 +15,10 @@ feature 'user views item show page', %{
 
     visit item_path(review.item)
     expect(page).to have_content(review.item.name)
-    expect(page).to have_content(review.item.description)
 
     expect(page).to have_content(review.rating)
     expect(page).to have_content(review.description)
 
     expect(page).to have_content("Add Review")
-    expect(page).to have_content("Back")
   end
 end

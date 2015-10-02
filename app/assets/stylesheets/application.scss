@@ -77,11 +77,11 @@ $primary-color: #008cba;
     background: rgba(0, 0, 0, 0.6);
     color: $white;
     font: bold 12px/24px Helvetica, Sans-Serif;
+    margin-bottom: 40px;
+    margin-top: 10px;
     padding: 1px;
     padding-left: 10px;
     padding-right: 10px;
-    margin-top: 10px;
-    margin-bottom: 40px;
   }
 }
 
@@ -164,13 +164,13 @@ body {
 }
 
 .item-category {
-  margin-top: 20px;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .vote-image {
-  margin: 5px;
   height: 20px;
+  margin: 5px;
   width: 20px;
 }
 

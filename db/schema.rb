@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150930194648) do
     t.string   "description",  null: false
     t.string   "purchase_url"
     t.integer  "category_id"
-    t.integer  "user_id"
+    t.integer  "user_id",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

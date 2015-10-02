@@ -20,7 +20,7 @@ feature 'user updates review', %{
     visit item_path(item)
     click_on "Edit"
     choose 3
-    click_on "Submit Edits"
+    click_on "Submit"
 
     expect(page).to have_content(3)
     expect(page).to have_content(review.description)

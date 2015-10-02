@@ -19,6 +19,7 @@ $white: #ffffff;
 $black: #000000;
 $red: #ff0000;
 $search-result: #008cba;
+$primary-color: #008cba;
 
 .hidden-text a {
   color: transparent;
@@ -28,7 +29,7 @@ $search-result: #008cba;
 .sit-image {
   position: static;
   width: 100%;
-  margin-top: -20px;
+  margin-top: 20px;
   padding-right: 5px;
   padding-left: 5px;
 }
@@ -74,11 +75,11 @@ $search-result: #008cba;
 
   .submit-form {
     background: rgba(0, 0, 0, 0.6);
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
     color: $white;
-    margin-top: 10px;
+    font: bold 12px/24px Helvetica, Sans-Serif;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -154,4 +155,8 @@ body {
   height: auto;
   max-width: 250px;
   width: auto;
+}
+
+.background-grey {
+  background-color: rgba(60, 59, 59, 0.3);
 }

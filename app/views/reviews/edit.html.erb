@@ -1,4 +1,6 @@
-<h1>Edit Review</h1>
+<div class="text-center category-header">
+  <h4> Edit Review </h4>
+</div>
 
 <div class="container">
   <%= form_for [@item, @review] do |f| %>
@@ -15,9 +17,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="field columns small-3">
-        <%= f.submit "Submit Edits", class: "submit-form" %>
+      <div class="field columns small-3 ">
+        <%= f.submit "Submit", class: "submit-form" %>
       </div>
     </div>
   <% end %>
+  <br>
+  <br>
 </div>

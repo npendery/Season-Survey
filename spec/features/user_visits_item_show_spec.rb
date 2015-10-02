@@ -11,7 +11,9 @@ feature 'user views item show page', %{
   # User must see all reviews of that item
 
   scenario 'user visits item show path' do
+    user = FactoryGirl.create(:user)
     review = FactoryGirl.create(:review)
+    sign_in(user)
 
     visit item_path(review.item)
     expect(page).to have_content(review.item.name)

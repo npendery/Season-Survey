@@ -1,39 +1,56 @@
-<h2>Sign in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, class: "text-field" %>
-    <% if resource.errors[:email].present? %>
-      <%= content_tag :span, class: 'error-explanation' do %>
-        <%= "Email " + resource.errors[:email].join(", ") %>
-      <% end %>
-    <% end %>
-  </div>
+<div class="text-center category-header">
+  <h4>Sign in</h4>
+</div>
+<div class="container">
   <br>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "off", class: "text-field" %>
-    <% if resource.errors[:password].present? %>
-      <%= content_tag :span, class: 'error-explanation' do %>
-        <%= "Password " + resource.errors[:password].join(", ") %>
-      <% end %>
-    <% end %>
-
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="row">
+    <div class="columns small-4">
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "text-field" %>
+        <% if resource.errors[:email].present? %>
+          <%= content_tag :span, class: 'error-explanation' do %>
+            <%= "Email " + resource.errors[:email].join(", ") %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Sign in", class: "submit-form"  %>
   </div>
-<% end %>
+    <br>
+  <div class="row">
+    <div class="columns small-4">
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off", class: "text-field" %>
+        <% if resource.errors[:password].present? %>
+          <%= content_tag :span, class: 'error-explanation' do %>
+            <%= "Password " + resource.errors[:password].join(", ") %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<div class="shared-links">
-<%= render "devise/shared/links" %>
+    <% if devise_mapping.rememberable? -%>
+  <div class="row">
+    <div class="columns small-4">
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    </div>
+  </div>
+    <% end -%>
+
+  <div class="row">
+    <div class="actions">
+      <%= f.submit "Sign in", class: "submit-form"  %>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="shared-links">
+  <%= render "devise/shared/links" %>
+  </div>
 </div>

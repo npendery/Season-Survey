@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="field columns small-2">
+			<div class="field columns small-2 item-category">
 				<%= f.label :category_id %>
 				<%= f.collection_select(:category_id, Category.all, :id, :name_for_select, prompt: true, class: "item-category") %>
 			</div>

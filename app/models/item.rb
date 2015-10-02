@@ -18,4 +18,8 @@ class Item < ActiveRecord::Base
     where('name ILIKE ?', "%#{search}%") |
       where('description ILIKE ?', "%#{search}%")
   end
+
+  def votes_order
+    self.reviews.sort_by{ |review| review.total_score }.reverse!
+  end
 end

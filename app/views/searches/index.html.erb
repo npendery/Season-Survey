@@ -15,8 +15,10 @@
               <li><%= link_to result.name, item_path(result) %></li>
             <% end %>
           <% end %>
-          <% if @search_results_review.present? %>
+          <% if @search_results_review.present? && @search_results_item.present? %>
             <HR WIDTH="90%">
+          <% end %>
+          <% if @search_results_review.present? %>
             <p>Review Results</p>
             <% @search_results_review.each do |result| %>
                 <li><%= link_to result.item.name, item_path(result.item) %></li>

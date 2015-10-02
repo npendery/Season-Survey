@@ -17,6 +17,7 @@
  */
 $white: #ffffff;
 $black: #000000;
+$red: #ff0000;
 $search-result: #008cba;
 $primary-color: #008cba;
 
@@ -57,7 +58,14 @@ $primary-color: #008cba;
   .text-field {
     padding: 5px;
     height: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 1px;
+  }
+
+  .error-explanation {
+    color: $red;
+    font-size: 10px;
+    font-style: italic;
+    padding-bottom: 15px;
   }
 
   select {
@@ -127,6 +135,18 @@ body {
   font-style: oblique;
 }
 
+.shared-links {
+  margin-top: 20px;
+}
+
+.field {
+  padding-bottom: 0;
+
+  em {
+    font-size: 8px;
+  }
+}
+
 .right-nav {
   padding-left: 20px;
 }
@@ -135,7 +155,7 @@ body {
   height: auto;
   max-width: 250px;
   width: auto;
-  }
+}
 
 .background-grey {
   background-color: rgba(60, 59, 59, 0.3);

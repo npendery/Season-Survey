@@ -39,6 +39,13 @@
                 <li class="small-font"><%= link_to "Edit", edit_item_review_path(@item, review) %> or
                 <%= link_to "Delete", review_path(review), method: :delete %></li>
               <% end %>
+                <span id="vote-div">
+                  <div>
+                    Votes: <span class= 'vote-total'><%= review.total_score %></span>
+                  </div>
+                <%= link_to "upvote", review_upvotes_path(review), class: 'upvote' %>
+                <%= link_to "downvote", review_downvotes_path(review), class: 'downvote' %>
+              </span>
             <% end %>
             <br>
 

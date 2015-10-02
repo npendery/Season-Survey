@@ -3,14 +3,17 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :categories, only: [:index, :show] do
-    resources :items, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :items, except: [:index]
   end
 
-  resources :items, only: [:new, :create, :show, :edit, :update, :destroy] do
-    resources :reviews, only: [:index, :new, :create, :update, :edit, :destroy]
+  resources :items, except: [:index] do
+    resources :reviews, except: [:show]
   end
 
-  resources :reviews, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :reviews do
+    resources :upvotes, only: [:create]
+    resources :downvotes, only: [:create]
+  end
 
   resources :searches, only: [:index]
 

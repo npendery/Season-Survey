@@ -43,7 +43,7 @@ feature 'admin visits users index', %{
       click_link "Delete This User"
     end
 
-    expect(page).to_not have_content(user1.username)
+    expect(page).to_not have_content(user1.email)
   end
 
   scenario 'admin makes another user an admin' do
